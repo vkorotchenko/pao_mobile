@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="" />
+    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/two.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/charging.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/settings.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +132,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686767949808</updated>
-      <workItem from="1686767951065" duration="7512000" />
+      <workItem from="1686767951065" duration="9351000" />
     </task>
     <task id="LOCAL-00001" summary="init new app">
       <created>1686781427435</created>
@@ -134,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686781427435</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init new app">
+      <created>1686781437343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686781437343</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
