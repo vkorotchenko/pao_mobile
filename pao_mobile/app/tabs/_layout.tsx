@@ -50,6 +50,20 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="input"
+        options={{
+          title: 'Inut',
+          tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="output"
+        options={{
+          title: 'Output',
+          tabBarIcon: ({ color }) => <TabBarIcon name="minus" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
