@@ -3,8 +3,8 @@ import BleManager from 'react-native-ble-manager'
 import styled from "styled-components/native"
 import { convertString } from 'convert-string'
 
-import ScreenContainer from '../components/ScreenContainer'
-import Button from '../components/Button';
+import ScreenContainer from './ScreenContainer'
+import Button from './Button';
 import { TextInput, Text, TouchableHighlight } from 'react-native';
 
 const Ble = () => {

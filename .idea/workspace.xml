@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pao_mobile/app/(tabs)/two.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/charging.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pao_mobile/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pao_mobile/app/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pao_mobile/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ScreenContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/components/ScreenContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Ble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/components/Ble.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,22 +30,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/vkorotchenko/workspace/mobile/pao_mobile",
-    "nodejs_package_manager_path": "yarn",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/vkorotchenko/workspace/mobile/pao_mobile/pao_mobile/node_modules/typescript/lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vkorotchenko/workspace/mobile/pao_mobile&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/vkorotchenko/workspace/mobile/pao_mobile/pao_mobile/node_modules/typescript/lib&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pao_mobile/components" />
       <recent name="$PROJECT_DIR$/pao_mobile" />
     </key>
   </component>
@@ -71,6 +77,19 @@
       <option name="resourceGroup" />
       <option name="stagingFolder" />
       <option name="subscription" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="pao_mobile" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="pao_mobile" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,7 +151,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686767949808</updated>
-      <workItem from="1686767951065" duration="9351000" />
+      <workItem from="1686767951065" duration="15515000" />
     </task>
     <task id="LOCAL-00001" summary="init new app">
       <created>1686781427435</created>
@@ -148,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686781437343</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update labels">
+      <created>1686783788930</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686783788930</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +182,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init new app" />
-    <option name="LAST_COMMIT_MESSAGE" value="init new app" />
+    <MESSAGE value="update labels" />
+    <option name="LAST_COMMIT_MESSAGE" value="update labels" />
   </component>
 </project>

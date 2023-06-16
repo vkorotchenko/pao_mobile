@@ -25,14 +25,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'EV Pao',
+          tabBarIcon: ({ color }) => <TabBarIcon name="car" color={color} />,
           headerRight: () => (
             <Link href="/settings" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="info-circle"
+                    name="gear"
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
@@ -47,7 +47,7 @@ export default function TabLayout() {
         name="charging"
         options={{
           title: 'Charge status',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
         }}
       />
     </Tabs>

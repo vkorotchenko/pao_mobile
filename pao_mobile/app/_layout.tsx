@@ -43,7 +43,7 @@ function RootLayoutNav() {
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="Pao EV" options={{ headerShown: false }} />
-          <Stack.Screen name="settings" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="Settings" options={{ presentation: 'modal' }} />
         </Stack>
       </ThemeProvider>
     </>
