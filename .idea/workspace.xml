@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/Inputs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/outputs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pao_mobile/app/tabs/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686767949808</updated>
       <workItem from="1686767951065" duration="15515000" />
-      <workItem from="1686877249520" duration="380000" />
+      <workItem from="1686877249520" duration="1102000" />
     </task>
     <task id="LOCAL-00001" summary="init new app">
       <created>1686781427435</created>
@@ -174,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686877300269</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="trying to add ble">
+      <created>1686877736162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686877736162</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
