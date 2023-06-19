@@ -2,7 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[...missing].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/Inputs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/charging.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/outputs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/SpaceMono-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/adaptive-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/EditScreenInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ExternalLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/StyledText.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Themed.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/__tests__/StyledText-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constants/Colors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +171,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686767949808</updated>
       <workItem from="1686767951065" duration="15515000" />
-      <workItem from="1686877249520" duration="1102000" />
+      <workItem from="1686877249520" duration="1425000" />
     </task>
     <task id="LOCAL-00001" summary="init new app">
       <created>1686781427435</created>
@@ -179,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686877736162</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor dirs">
+      <created>1687193555810</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687193555810</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +225,7 @@
     <MESSAGE value="init new app" />
     <MESSAGE value="update labels" />
     <MESSAGE value="trying to add ble" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to add ble" />
+    <MESSAGE value="refactor dirs" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor dirs" />
   </component>
 </project>
