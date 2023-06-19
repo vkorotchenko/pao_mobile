@@ -6,7 +6,7 @@ import { Text, View } from '../../components/Themed';
 export default function ChargingScreen() {
   return (
     <View style={styles.container}>
-      charging
+      <Text>charging</Text>
     </View>
   );
 }

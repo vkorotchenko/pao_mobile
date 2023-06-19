@@ -6,7 +6,7 @@ import { Text, View } from '../../components/Themed';
 export default function ConfigScreen() {
   return (
     <View style={styles.container}>
-      Config
+      <Text>Config</Text>
     </View>
   );
 }

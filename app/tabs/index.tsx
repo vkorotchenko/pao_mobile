@@ -6,7 +6,7 @@ import { Text, View } from '../../components/Themed';
 export default function MainScreen() {
   return (
     <View style={styles.container}>
-      Main
+      <Text>Main</Text>
     </View>
   );
 }

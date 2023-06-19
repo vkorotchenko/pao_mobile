@@ -6,7 +6,7 @@ import { Text, View } from '../../components/Themed';
 export default function InputOutputScreen() {
   return (
     <View style={styles.container}>
-     Input/Output
+      <Text>Input/Output</Text>
     </View>
   );
 }
