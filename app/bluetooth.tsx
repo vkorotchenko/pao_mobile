@@ -3,12 +3,11 @@ import { Platform, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-import Ble from "../components/Ble";
 
-export default function ModalScreen() {
+export default function BluetoothScreen() {
   return (
     <View style={styles.container}>
-      {/*<Ble /> // TODO need to create a screen which will connect to the Bluetooth*/}
+      <Text>BT config</Text>
     </View>
   );
 }

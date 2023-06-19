@@ -25,14 +25,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'EV Pao',
+          title: 'Pao',
           tabBarIcon: ({ color }) => <TabBarIcon name="car" color={color} />,
           headerRight: () => (
-            <Link href="/settings" asChild>
+            <Link href="/bluetooth" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="gear"
+                    name="bluetooth"
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
@@ -46,22 +46,22 @@ export default function TabLayout() {
       <Tabs.Screen
         name="charging"
         options={{
-          title: 'Charge status',
+          title: 'Charging',
           tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="input"
+        name="inputOutput"
         options={{
-          title: 'Inut',
-          tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
+          title: 'Input/Output',
+          tabBarIcon: ({ color }) => <TabBarIcon name="rotate-left" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="output"
+        name="config"
         options={{
-          title: 'Output',
-          tabBarIcon: ({ color }) => <TabBarIcon name="minus" color={color} />,
+          title: 'Config',
+          tabBarIcon: ({ color }) => <TabBarIcon name="wrench" color={color} />,
         }}
       />
     </Tabs>

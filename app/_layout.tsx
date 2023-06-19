@@ -11,8 +11,8 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/settings` keeps a back button present.
-  initialRouteName: 'Pao',
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: 'tabs',
 };
 
 export default function RootLayout() {
@@ -42,8 +42,8 @@ function RootLayoutNav() {
     <>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
-          <Stack.Screen name="Pao EV" options={{ headerShown: false }} />
-          <Stack.Screen name="Settings" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="tabs" options={{ headerShown: false }} />
+          <Stack.Screen name="bluetooth" options={{ presentation: 'modal' }} />
         </Stack>
       </ThemeProvider>
     </>

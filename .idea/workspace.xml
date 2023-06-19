@@ -2,36 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[...missing].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/settings.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/Inputs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/charging.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/outputs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/SpaceMono-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/adaptive-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/EditScreenInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ExternalLink.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/StyledText.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Themed.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/__tests__/StyledText-test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/Colors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.expo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.expo/devices.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/bare-expo/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/config.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tabs/inputOutput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/bluetooth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/Inputs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/charging.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/charging.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/outputs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +52,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
+    "ts.external.directory.path": "/Users/vkorotchenko/workspace/mobile/pao_mobile/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -220,6 +212,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init new app" />
