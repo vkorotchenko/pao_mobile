@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="added build dirs">
+    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/common/ble.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,7 @@
       <recent name="$PROJECT_DIR$/pao_mobile" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.android">
+  <component name="RunManager" selected="npm.android:device">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -96,6 +98,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="android:device" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="android:device" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="eject" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -128,6 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.android:device" />
         <item itemvalue="npm.android" />
         <item itemvalue="npm.web" />
         <item itemvalue="npm.prebuild" />
@@ -216,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687221617926</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update lock file">
+      <created>1687222358193</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687222358193</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +262,7 @@
     <MESSAGE value="running on android" />
     <MESSAGE value="adding ble support" />
     <MESSAGE value="added build dirs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added build dirs" />
+    <MESSAGE value="update lock file" />
+    <option name="LAST_COMMIT_MESSAGE" value="update lock file" />
   </component>
 </project>

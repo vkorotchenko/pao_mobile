@@ -1,3 +1,3 @@
 import React from "react";
 
-export const BleMainContext = React.createContext({});
+export const BleMainContext = React.createContext({device:null});

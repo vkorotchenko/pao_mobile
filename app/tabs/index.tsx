@@ -1,12 +1,21 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import {Text, View} from '../../components/Themed';
+import {useContext, useState} from "react";
+import {BleMainContext} from "../../components/ble/BleMainContext";
+import characteristics from "../../common/characteristics.json"
+import {registerMonitor} from "../../common/ble";
 
 export default function MainScreen() {
+  const {device} = useContext(BleMainContext);
+  const [reqSpeed, setReqSpeed] = useState(0);
+
+  registerMonitor(device, characteristics.evcu.id, characteristics.evcu.characteristics.pao.reqSpeed, setReqSpeed);
+
   return (
     <View style={styles.container}>
       <Text>Main</Text>
+      <Text>{reqSpeed}</Text>
     </View>
   );
 }
