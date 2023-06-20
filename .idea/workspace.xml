@@ -2,26 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.expo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/devices.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/bare-expo/android/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/config.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tabs/inputOutput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.watchmanconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/characteristics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/constants.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ble/BleChargerContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/bluetooth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tabs/Inputs.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tabs/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tabs/charging.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/charging.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tabs/outputs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bluetooth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/bluetooth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -61,7 +51,7 @@
       <recent name="$PROJECT_DIR$/pao_mobile" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.web">
+  <component name="RunManager" selected="npm.android">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -147,9 +137,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.android" />
         <item itemvalue="npm.web" />
         <item itemvalue="npm.prebuild" />
-        <item itemvalue="npm.android" />
         <item itemvalue="npm.eject" />
       </list>
     </recent_temporary>
@@ -207,7 +197,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687193555810</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="initial setup &#10;- file layouts">
+      <created>1687203328684</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687203328684</updated>
+    </task>
+    <task id="LOCAL-00008" summary="running on android">
+      <created>1687203525216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687203525216</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +233,8 @@
     <MESSAGE value="update labels" />
     <MESSAGE value="trying to add ble" />
     <MESSAGE value="refactor dirs" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor dirs" />
+    <MESSAGE value="initial setup &#10;- file layouts" />
+    <MESSAGE value="running on android" />
+    <option name="LAST_COMMIT_MESSAGE" value="running on android" />
   </component>
 </project>
