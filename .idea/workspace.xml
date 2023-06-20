@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common/ble.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/ble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/common/ble.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687222358193</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="monitor characteristic">
+      <created>1687287694285</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687287694285</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +270,7 @@
     <MESSAGE value="adding ble support" />
     <MESSAGE value="added build dirs" />
     <MESSAGE value="update lock file" />
-    <option name="LAST_COMMIT_MESSAGE" value="update lock file" />
+    <MESSAGE value="monitor characteristic" />
+    <option name="LAST_COMMIT_MESSAGE" value="monitor characteristic" />
   </component>
 </project>

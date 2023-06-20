@@ -6,10 +6,8 @@ import {useEffect, useState} from 'react';
 import {useColorScheme} from 'react-native';
 import {BleChargerContext} from "../components/ble/BleChargerContext";
 import {BleMainContext} from "../components/ble/BleMainContext";
-import {BleManager, Device} from "react-native-ble-plx";
-
-const characteristic = require("../common/characteristics.json");
-
+import {BleManager} from "react-native-ble-plx";
+import {scanAndConnect} from "../common/ble";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -39,51 +37,6 @@ export default function RootLayout() {
       {loaded && <RootLayoutNav/>}
     </>
   );
-}
-
-const scanAndConnect = (manager: BleManager, setBtMainDevice: any, setBtChargerDevice: any) => {
-  console.log("Scanning Started");
-  let isMainDeviceFound = false;
-  let isChargerDeviceFound = false;
-  manager.startDeviceScan(null, null, (error, device) => {
-    if (error) {
-      // Handle error (scanning will be stopped automatically)
-      console.log("Error in scanning devices:", error);
-      return
-    }
-    // Check if it is a device you are looking for based on advertisement data
-    // or other criteria.
-    console.log("Detected Device Details:", device?.id, device?.name);
-    // ||device.localName === 'BLEPeripheralApp')
-    if (device?.name === 'Pao EVCU') { //
-      // Stop scanning as it's not necessary if you are scanning for one device.
-      console.log("Connecting to:", device.name)
-      device.connect()
-        .then((device) => {
-          // this.info("Discovering services and characteristics")
-          console.log("Connected...Discovering services and characteristics");
-          isMainDeviceFound = true;
-          setBtMainDevice(device);
-          if (isChargerDeviceFound) {
-            manager.stopDeviceScan();
-          }
-        });
-    }
-    if (device?.name === 'Pao Charger') { //
-      // Stop scanning as it's not necessary if you are scanning for one device.
-      console.log("Connecting to:", device.name)
-      device.connect()
-        .then((device) => {
-          // this.info("Discovering services and characteristics")
-          console.log("Connected...Discovering services and characteristics");
-          isChargerDeviceFound = true;
-          setBtChargerDevice(device);
-          if (isMainDeviceFound) {
-            manager.stopDeviceScan();
-          }
-        });
-    }
-  });
 }
 
 const manager = new BleManager({});
