@@ -1,179 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="adding ble support">
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/assert/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/async_hooks/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/buffer/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/child_process/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/cluster/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/console/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/constants/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/crypto/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/dgram/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/diagnostics_channel/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/dns/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/domain/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/events/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/fs/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/fs/promises/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/http/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/http2/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/https/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/inspector/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/module/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/net/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/os/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/path/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/perf_hooks/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/process/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/punycode/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/querystring/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/readline/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/repl/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/stream/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/string_decoder/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/timers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/tls/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/trace_events/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/tty/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/url/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/util/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/v8/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/vm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/worker_threads/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/externals/zlib/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/polyfill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/metro/polyfill.native.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-adaptive-foreground/android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent/icon_144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-adaptive-foreground/android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent/icon_192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-adaptive-foreground/android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent/icon_48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-adaptive-foreground/android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent/icon_72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-adaptive-foreground/android-adaptive-foreground-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-transparent/icon_96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-circle/android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-circle/android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-circle/android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-circle/android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-circle/android-standard-circle-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-square/android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-square/android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-square/android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-square/android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/android-standard-square/android-standard-square-5f4c0a732b6325bf4071d9124d2ae67e037cb24fcc9c482ef82bea742109a3b8-cover-#ffffff/icon_96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-20x20@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-20x20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-20x20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-29x29@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-29x29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-29x29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-40x40@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-40x40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-40x40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-60x60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-60x60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-76x76@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-76x76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/App-Icon-83.5x83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/icons/icons-74c64047eb557b1341bba7a2831eedde9ddb705e6451a9ad9f5552bf558f13de-cover-#ffffff/ItunesArtwork@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/splash-android/splash-android-bc25a616b4e31cf7300cd97b9cbf8894e855e6373aa797d0badd7e211111c5e5-contain/icon_undefined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.expo/web/cache/production/images/splash-ios/splash-ios-bc25a616b4e31cf7300cd97b9cbf8894e855e6373aa797d0badd7e211111c5e5-contain/icon_undefined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/BUCK" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/build_defs.bzl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/debug.keystore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/debug/java/com/vkorotchenko/pao/android/ReactNativeFlipper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/vkorotchenko/pao/android/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/vkorotchenko/pao/android/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/vkorotchenko/pao/android/newarchitecture/MainApplicationReactNativeHost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/vkorotchenko/pao/android/newarchitecture/components/MainComponentsRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/vkorotchenko/pao/android/newarchitecture/modules/MainApplicationTurboModuleManagerDelegate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainApplicationModuleProvider.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainApplicationModuleProvider.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainApplicationTurboModuleManagerDelegate.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainApplicationTurboModuleManagerDelegate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainComponentsRegistry.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/MainComponentsRegistry.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/jni/OnLoad.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable-hdpi/splashscreen_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable-mdpi/splashscreen_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable-xhdpi/splashscreen_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable-xxhdpi/splashscreen_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable-xxxhdpi/splashscreen_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable/rn_edit_text_material.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable/splashscreen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values-night/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.xcode.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao.xcodeproj/xcshareddata/xcschemes/Pao.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/AppDelegate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/AppDelegate.mm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-20x20@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-20x20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-20x20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-29x29@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-29x29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-29x29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-40x40@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-40x40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-40x40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-60x60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-60x60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-76x76@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-76x76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/App-Icon-83.5x83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/SplashScreen.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/SplashScreen.imageset/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/SplashScreenBackground.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Images.xcassets/SplashScreenBackground.imageset/image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Pao.entitlements" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/SplashScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/Supporting/Expo.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/main.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pao/noop-file.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Podfile.properties.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
+    <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="added build dirs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/bare-expo/android/app/google-services.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/google-services.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -380,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687220457052</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added build dirs">
+      <created>1687221617926</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687221617926</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +241,7 @@
     <MESSAGE value="initial setup &#10;- file layouts" />
     <MESSAGE value="running on android" />
     <MESSAGE value="adding ble support" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding ble support" />
+    <MESSAGE value="added build dirs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added build dirs" />
   </component>
 </project>
