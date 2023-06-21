@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="89e32aa3-ea5a-4d14-8a2e-7df9a2a70907" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/charging.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/charging.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/config.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/ble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/common/ble.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ble/BleMainContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tabs/inputOutput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/tabs/inputOutput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/characteristics.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/characteristics.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ble/BleChargerContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ble/BleChargerContext.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687287694285</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update main page to monitor ble">
+      <created>1687291324194</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1687291324194</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +280,7 @@
     <MESSAGE value="added build dirs" />
     <MESSAGE value="update lock file" />
     <MESSAGE value="monitor characteristic" />
-    <option name="LAST_COMMIT_MESSAGE" value="monitor characteristic" />
+    <MESSAGE value="update main page to monitor ble" />
+    <option name="LAST_COMMIT_MESSAGE" value="update main page to monitor ble" />
   </component>
 </project>

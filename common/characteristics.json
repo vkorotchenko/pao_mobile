@@ -1,7 +1,6 @@
 {
   "evcu": {
     "id": "0x27B4",
-    "characteristics": {
       "pao": {
         "reqSpeed": "0xFF01",
         "reqState": "0xFF02",
@@ -53,7 +52,6 @@
         "configRegenTaperLower": "0xFF02C",
         "configRegenTaperUpper": "0xFF2D"
       }
-    }
   },
   "charger": {
     "id": "0x27B0",

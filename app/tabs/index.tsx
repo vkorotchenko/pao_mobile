@@ -22,7 +22,7 @@ export default function MainScreen() {
   const [resDcCurrent, setResDcCurrent] = useState(0);
 
   const serviceId = characteristics.evcu.id;
-  const pao_ids = characteristics.evcu.characteristics.pao;
+  const pao_ids = characteristics.evcu.pao;
 
   registerMonitor(device, serviceId, pao_ids.reqSpeed, setReqSpeed);
   registerMonitor(device, serviceId, pao_ids.reqState, setReqState);
