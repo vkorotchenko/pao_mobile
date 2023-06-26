@@ -1,15 +1,18 @@
-import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import {useContext, useState} from "react";
-import {BleMainContext} from "../../components/ble/BleMainContext";
+import {useContext, useEffect, useState} from "react";
+import {BleMainContext, BleMainContextType} from "../../components/ble/BleMainContext";
 import characteristics from "../../common/characteristics.json";
-import {registerMonitor} from "../../common/ble";
+import {handleUpdateValueForCharacteristic, registerMonitor} from "../../common/ble";
+import { BleManagerDidUpdateValueForCharacteristicEvent } from 'react-native-ble-manager';
+import { StyleSheet, Image, View } from 'react-native';
+import { Caption, List, Text, Chip, Divider } from 'react-native-paper';
+
+var Buffer = require('buffer/').Buffer
+
 
 export default function ConfigScreen() {
 
-  const {device} = useContext(BleMainContext);
+  const {emitter, device} = useContext(BleMainContext) as BleMainContextType;
 
   const [configSpeedMax, setConfigSpeedMax] = useState(0);
   const [configTorqueMax, setConfigTorqueMax] = useState(0);
@@ -34,49 +37,124 @@ export default function ConfigScreen() {
   const serviceId = characteristics.evcu.id;
   const ids = characteristics.evcu.config;
 
-  registerMonitor(device, serviceId, ids.configSpeedMax, setConfigSpeedMax);
-  registerMonitor(device, serviceId, ids.configTorqueMax, setConfigTorqueMax);
-  registerMonitor(device, serviceId, ids.configSpeedSlewRate, setConfigSpeedSlewRate);
-  registerMonitor(device, serviceId, ids.configTorqueSlewRate, setConfigTorqueSlewRate);
-  registerMonitor(device, serviceId, ids.configReversePercent, setConfigReversePercent);
-  registerMonitor(device, serviceId, ids.configKilowattHrs, setConfigKilowattHrs);
-  registerMonitor(device, serviceId, ids.configPrechargeR, setConfigPrechargeR);
-  registerMonitor(device, serviceId, ids.configNominalVolt, setConfigNominalVolt);
-  registerMonitor(device, serviceId, ids.configPrechargeRelay, setConfigPrechargeRelay);
-  registerMonitor(device, serviceId, ids.configMainContactorRelay, setConfigMainContactorRelay);
-  registerMonitor(device, serviceId, ids.configCoolFan, setConfigCoolFan);
-  registerMonitor(device, serviceId, ids.configCoolOn, setConfigCoolOn);
-  registerMonitor(device, serviceId, ids.configCoolOff, setConfigCoolOff);
-  registerMonitor(device, serviceId, ids.configBrakeLight, setConfigBrakeLight);
-  registerMonitor(device, serviceId, ids.configRevLight, setConfigRevLight);
-  registerMonitor(device, serviceId, ids.configEnableIn, setConfigEnableIn);
-  registerMonitor(device, serviceId, ids.configReverseIn, setConfigReverseIn);
-  registerMonitor(device, serviceId, ids.configRegenTaperLower, setConfigRegenTaperLower);
-  registerMonitor(device, serviceId, ids.configRegenTaperUpper, setConfigRegenTaperUpper);
+  useEffect(() => {
+    const listeners = [
+      emitter.addListener(
+        'BleManagerDidUpdateValueForCharacteristic',
+        (event: BleManagerDidUpdateValueForCharacteristicEvent)=>  {
+          const peripheral = event.peripheral;
+          const characteristic = event.characteristic;
+          const value = Buffer.from(event.value);
+          switch (characteristic) {
+            case ids.speedMax:
+              setConfigSpeedMax(value);
+              break;
+            case ids.torqueMax:
+              setConfigTorqueMax(value);
+              break;
+            case ids.speedSlewRate:
+              setConfigSpeedSlewRate(value);
+              break;
+            case ids.torqueSlewRate:
+              setConfigTorqueSlewRate(value);
+              break;
+            case ids.reversePercent:
+              setConfigReversePercent(value);
+              break;
+            case ids.kilowattHrs:
+              setConfigKilowattHrs(value);
+              break;
+            case ids.prechargeR:
+              setConfigPrechargeR(value);
+              break;
+            case ids.nominalVolt:
+              setConfigNominalVolt(value);
+              break;
+            case ids.prechargeRelay:
+              setConfigPrechargeRelay(value);
+              break;
+            case ids.mainContactorRelay:
+              setConfigMainContactorRelay(value);
+              break;
+            case ids.coolFan:
+              setConfigCoolFan(value);
+              break;
+            case ids.coolOn:
+              setConfigCoolOn(value);
+              break;
+            case ids.coolOff:
+              setConfigCoolOff(value);
+              break;
+            case ids.brakeLight:
+              setConfigBrakeLight(value);
+              break;
+            case ids.revLight:
+              setConfigRevLight(value);
+              break;
+            case ids.enableIn:
+              setConfigEnableIn(value);
+              break;
+            case ids.reverseIn:
+              setConfigReverseIn(value);
+              break;
+            case ids.regenTaperLower:
+              setConfigRegenTaperLower(value);
+              break;
+            case ids.regenTaperUpper:
+              setConfigRegenTaperUpper(value);
+              break;
+          }
+        },
+      ),
+    ];
+
+    return () => {
+      for (const listener of listeners) {
+        listener.remove();
+      }
+    };
+  }, [emitter]);
 
   return (
-    <View style={styles.container}>
-      <Text>Config</Text>
-      <Text>{configSpeedMax}</Text>
-      <Text>{configTorqueMax}</Text>
-      <Text>{configSpeedSlewRate}</Text>
-      <Text>{configTorqueSlewRate}</Text>
-      <Text>{configReversePercent}</Text>
-      <Text>{configKilowattHrs}</Text>
-      <Text>{configPrechargeR}</Text>
-      <Text>{configNominalVolt}</Text>
-      <Text>{configPrechargeRelay}</Text>
-      <Text>{configMainContactorRelay}</Text>
-      <Text>{configCoolFan}</Text>
-      <Text>{configCoolOn}</Text>
-      <Text>{configCoolOff}</Text>
-      <Text>{configBrakeLight}</Text>
-      <Text>{configRevLight}</Text>
-      <Text>{configEnableIn}</Text>
-      <Text>{configReverseIn}</Text>
-      <Text>{configRegenTaperLower}</Text>
-      <Text>{configRegenTaperUpper}</Text>
-    </View>
+
+    <List.Section>
+      <List.Subheader>Single line</List.Subheader>
+      <List.Item
+        left={(props) => <List.Icon {...props} icon="calendar" />}
+        title="List item 1"
+      />
+      <List.Item
+        left={(props) => <List.Icon {...props} icon="wallet-giftcard" />}
+        title="List item 2"
+      />
+      <List.Item
+        title="List item 3"
+        left={(props) => <List.Icon {...props} icon="folder" />}
+        right={(props) => <List.Icon {...props} icon="equal" />}
+      />
+    </List.Section>
+    // <View style={styles.container}>
+    //   <Text>Config</Text>
+    //   <Text>{configSpeedMax}</Text>
+    //   <Text>{configTorqueMax}</Text>
+    //   <Text>{configSpeedSlewRate}</Text>
+    //   <Text>{configTorqueSlewRate}</Text>
+    //   <Text>{configReversePercent}</Text>
+    //   <Text>{configKilowattHrs}</Text>
+    //   <Text>{configPrechargeR}</Text>
+    //   <Text>{configNominalVolt}</Text>
+    //   <Text>{configPrechargeRelay}</Text>
+    //   <Text>{configMainContactorRelay}</Text>
+    //   <Text>{configCoolFan}</Text>
+    //   <Text>{configCoolOn}</Text>
+    //   <Text>{configCoolOff}</Text>
+    //   <Text>{configBrakeLight}</Text>
+    //   <Text>{configRevLight}</Text>
+    //   <Text>{configEnableIn}</Text>
+    //   <Text>{configReverseIn}</Text>
+    //   <Text>{configRegenTaperLower}</Text>
+    //   <Text>{configRegenTaperUpper}</Text>
+    // </View>
   );
 }
 

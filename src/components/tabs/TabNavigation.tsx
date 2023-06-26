@@ -39,7 +39,6 @@ const TabNavigation = () => {
   const routes =tabs.navigation;
 
   return (
-    <View style={styles.screen}>
       <BottomNavigation
         navigationState={{index, routes}}
         onIndexChange={setIndex}
@@ -54,7 +53,6 @@ const TabNavigation = () => {
         sceneAnimationType={'shifting'}
         sceneAnimationEasing={Easing.ease}
       />
-    </View>
   );
 };
 
@@ -89,11 +87,4 @@ const styles = StyleSheet.create({
       },
     },
   }),
-  photo: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  screen: {
-    flex: 1,
-  },
 });

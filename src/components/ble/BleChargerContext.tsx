@@ -1,3 +1,9 @@
 import React from "react";
+import { Peripheral } from "react-native-ble-manager";
+import { NativeEventEmitter } from "react-native";
 
-export const BleChargerContext = React.createContext({device: undefined});
+export type BleChargerContextType = {
+  device: Peripheral | undefined;
+  emitter: NativeEventEmitter;
+};
+export const BleChargerContext = React.createContext<BleChargerContextType|null>(null);
