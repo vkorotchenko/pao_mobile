@@ -136,32 +136,6 @@ export const togglePeripheralConnection = async (
     await connectPeripheral(peripheral, peripherals, setPeripherals);
   }
 };
-//
-// export const retrieveConnected = async (setPeripherals: SetPeripherals) => {
-//   try {
-//     const connectedPeripherals = await BleManager.getConnectedPeripherals();
-//     if (connectedPeripherals.length === 0) {
-//       console.warn('[retrieveConnected] No connected peripherals found.');
-//       return;
-//     }
-//
-//     console.debug(
-//       '[retrieveConnected] connectedPeripherals',
-//       connectedPeripherals,
-//     );
-//
-//     for (var i = 0; i < connectedPeripherals.length; i++) {
-//       var peripheral = connectedPeripherals[i];
-//       addOrUpdatePeripheral(peripheral.id, {...peripheral}, setPeripherals);
-//     }
-//   } catch (error) {
-//     console.error(
-//       '[retrieveConnected] unable to retrieve connected peripherals.',
-//       error,
-//     );
-//   }
-// };
-
 export const connectPeripheral = async (
   peripheral: Peripheral,
   peripherals: Peripherals,
@@ -185,6 +159,11 @@ export const connectPeripheral = async (
         peripheralData,
       );
 
+      const rssi = await BleManager.readRSSI(peripheral.id);
+      console.debug(
+        `[connectPeripheral][${peripheral.id}] retrieved current RSSI value: ${rssi}.`,
+      );
+
       if (peripheralData.characteristics) {
         for (let characteristic of peripheralData.characteristics) {
           if (characteristic.descriptors) {
@@ -196,10 +175,7 @@ export const connectPeripheral = async (
                   characteristic.characteristic,
                   descriptor.uuid,
                 );
-                console.debug(
-                  `[connectPeripheral][${peripheral.id}] descriptor read as:`,
-                  Buffer.from(data),
-                );
+                console.debug(`[connectPeripheral][${peripheral.id}] descriptor read as:`, data,);
               } catch (error) {
                 console.error(
                   `[connectPeripheral][${peripheral.id}] failed to retrieve descriptor ${descriptor} for characteristic ${characteristic}:`,
