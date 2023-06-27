@@ -1,4 +1,3 @@
-
 export type RoutesState = Array<{
   key: string;
   title: string;

@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import type {PropsWithChildren} from 'react';
-import {PaperProvider} from 'react-native-paper';
+import * as React from 'react';
+
+import {useEffect, useState} from 'react';
+import {BottomNavigation, PaperProvider} from 'react-native-paper';
 import {
   handleDisconnectedPeripheral,
   handleStopScan,
@@ -8,30 +9,22 @@ import {
   Peripherals,
   handleDiscoverPeripheral,
   handleAndroidPermissions,
-  startScan
-} from "./src/common/ble";
-import {BleChargerContext} from "./src/components/ble/BleChargerContext";
-import {BleMainContext} from "./src/components/ble/BleMainContext";
-import TabNavigation from "./src/components/tabs/TabNavigation";
+  startScan,
+  isConnected,
+} from './src/common/ble';
+// @ts-ignore
+import tabs from './src/config/tabs.json';
+import {BleContext} from './src/components/ble/BleContext';
 import {
   NativeModules,
   NativeEventEmitter,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
+  Easing,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import BleManager, {
   BleDisconnectPeripheralEvent,
@@ -42,15 +35,21 @@ import BleManager, {
   Peripheral,
 } from 'react-native-ble-manager';
 
-
 import ScreenWrapper from './src/common/ScreenWrapper';
-import { FloatingIcons } from './src/components/FloatingIcons';
+import {FloatingIcons} from './src/components/FloatingIcons';
+import PaoMainScreen from './src/components/tabs/PaoMainScreen';
+import ChargingScreen from './src/components/tabs/ChargingScreen';
+import ConfigScreen from './src/components/tabs/ConfigScreen';
+import InputOutputScreen from './src/components/tabs/InputOutputScreen';
 
 const BleManagerModule = NativeModules.BleManager;
 const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
+  const [index, setIndex] = React.useState(0);
+  const routes = tabs.navigation;
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -62,17 +61,12 @@ function App(): JSX.Element {
     new Map<Peripheral['id'], Peripheral>() as Peripherals
   );
 
-  const [btMainDevice, setBtMainDevice] = useState();
-  const [btChargerDevice, setBtChargerDevice] = useState();
-
-  // do bt scan : https://github.com/innoveit/react-native-ble-manager/blob/master/example/App.tsx
   useEffect(() => {
     try {
       BleManager.start({showAlert: false})
         .then(() => {
           console.debug('BleManager started.');
           handleAndroidPermissions();
-          startScan(isScanning, setPeripherals, setIsScanning);
         })
         .catch(error =>
           console.error('BeManager could not be started.', error),
@@ -82,25 +76,25 @@ function App(): JSX.Element {
       return;
     }
 
+    startScan(isScanning, setIsScanning);
 
     const listeners = [
       bleManagerEmitter.addListener(
         'BleManagerDiscoverPeripheral',
-        (peripheral)=>handleDiscoverPeripheral(peripheral,peripherals, setPeripherals),
+        peripheral =>
+          handleDiscoverPeripheral(peripheral, peripherals, setPeripherals, setIsScanning),
       ),
-      bleManagerEmitter.addListener(
-        'BleManagerStopScan',
-        ()=>handleStopScan(setIsScanning)),
-      bleManagerEmitter.addListener(
-        'BleManagerDisconnectPeripheral',
-        (event)=>handleDisconnectedPeripheral(event, peripherals, setPeripherals),
+      bleManagerEmitter.addListener('BleManagerStopScan', () =>
+        handleStopScan(setIsScanning),
+      ),
+      bleManagerEmitter.addListener('BleManagerDisconnectPeripheral', event =>
+        handleDisconnectedPeripheral(event, peripherals, setPeripherals),
       ),
       bleManagerEmitter.addListener(
         'BleManagerDidUpdateValueForCharacteristic',
-        (event)=>handleUpdateValueForCharacteristic(event),
+        event => handleUpdateValueForCharacteristic(event),
       ),
     ];
-
 
     return () => {
       console.debug('[app] main component unmounting. Removing listeners...');
@@ -110,18 +104,35 @@ function App(): JSX.Element {
     };
   }, [bleManagerEmitter]);
 
+  const tabMap = {
+    pao: () => <PaoMainScreen />,
+    charging: () => <ChargingScreen />,
+    inputOutput: () => <InputOutputScreen />,
+    config: () => <ConfigScreen />,
+  };
 
   return (
     <PaperProvider>
       <ScreenWrapper contentContainerStyle={styles.container}>
-        <BleMainContext.Provider value={{device: btMainDevice, emitter: bleManagerEmitter}}>
-          <BleChargerContext.Provider value={{device: btChargerDevice, emitter: bleManagerEmitter}}>
-            <View style={styles.screen}>
-              <FloatingIcons/>
-              <TabNavigation/>
-            </View>
-          </BleChargerContext.Provider>
-        </BleMainContext.Provider>
+        <BleContext.Provider value={{emitter: bleManagerEmitter}}>
+          <View style={styles.screen}>
+            <FloatingIcons
+              isScanning={isScanning}
+              isMainConnected={isConnected('Pao_EVCU', peripherals)}
+              isChargerConnected={isConnected('Pao_Charger', peripherals)}
+            />
+
+            <BottomNavigation
+              navigationState={{index, routes}}
+              onIndexChange={setIndex}
+              labelMaxFontSizeMultiplier={2}
+              renderScene={BottomNavigation.SceneMap(tabMap)}
+              sceneAnimationEnabled={true}
+              sceneAnimationType={'shifting'}
+              sceneAnimationEasing={Easing.ease}
+            />
+          </View>
+        </BleContext.Provider>
       </ScreenWrapper>
     </PaperProvider>
   );

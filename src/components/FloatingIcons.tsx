@@ -1,37 +1,48 @@
-import React, { useState } from "react";
-import {FAB, Portal } from "react-native-paper";
+import * as React from 'react';
+import {useState} from 'react';
+import {FAB, Portal} from 'react-native-paper';
 
-export const FloatingIcons = () => {
+export interface FloatingIconsProps {
+  readonly isMainConnected: boolean;
+  readonly isChargerConnected: boolean;
+  readonly isScanning: boolean;
+}
+export const FloatingIcons: React.FC<FloatingIconsProps> = ({
+  isMainConnected,
+  isChargerConnected,
+  isScanning,
+}) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [carConnected, setCarConnected] = useState<boolean>(false);
-  const [chargerConnected, setChargerConnected] = useState<boolean>(false);
 
   return (
     <Portal>
       <FAB.Group
         open={open}
-        icon={'bluetooth-settings'}
+        icon={isScanning ? 'refresh' : 'bluetooth-settings'}
         actions={[
           {
-            icon: carConnected ? 'bluetooth' : 'bluetooth-off',
+            icon: isMainConnected ? 'bluetooth' : 'bluetooth-off',
             accessibilityLabel: 'EVCU',
             onPress: () => {
-              setCarConnected(!carConnected)
-            }
+              // disconnect? refresh?
+            },
           },
           {
-            icon: chargerConnected ? 'battery-bluetooth' : 'battery',
+            icon: isChargerConnected ? 'battery-bluetooth' : 'battery',
             accessibilityLabel: 'Charger',
-            onPress: () => {setChargerConnected(!chargerConnected)}
+            onPress: () => {
+              //  disconnect? refresh?
+            },
           },
         ]}
-        onStateChange={({ open }: { open: boolean }) => setOpen(true)}
+        onStateChange={({open}: {open: boolean}) => setOpen(open)}
         onPress={() => {
           if (open) {
             // do something if the speed dial is open
           }
         }}
         visible={true}
+        style={{paddingBottom: 90}}
       />
     </Portal>
   );

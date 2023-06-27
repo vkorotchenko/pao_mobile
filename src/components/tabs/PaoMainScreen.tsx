@@ -1,13 +1,19 @@
 import {StyleSheet} from 'react-native';
+import * as React from 'react';
 
-import {Text, View} from '../../components/Themed';
-import {useContext, useState} from "react";
-import {BleMainContext} from "../../components/ble/BleMainContext";
-import characteristics from "../../common/characteristics.json"
-import {registerMonitor} from "../../common/ble";
+// @ts-ignore
+import characteristics from '../../config/characteristics.json';
+import {useContext, useEffect, useState} from 'react';
+import {BleContext, BleContextType} from '../../components/ble/BleContext';
+import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
+import ScreenWrapper from '../../common/ScreenWrapper';
+import {ListItem} from '../ListItem';
+var Buffer = require('buffer/').Buffer;
+import {List} from 'react-native-paper';
 
 export default function PaoMainScreen() {
-  const {device} = useContext(BleMainContext);
+  const {emitter} = useContext(BleContext) as BleContextType;
+
   const [reqSpeed, setReqSpeed] = useState(0);
   const [reqState, setReqState] = useState(0);
   const [reqTorque, setReqTorque] = useState(0);
@@ -22,40 +28,91 @@ export default function PaoMainScreen() {
   const [resDcCurrent, setResDcCurrent] = useState(0);
 
   const serviceId = characteristics.evcu.id;
-  const pao_ids = characteristics.evcu.pao;
+  const ids = characteristics.evcu.pao;
 
-  registerMonitor(device, serviceId, pao_ids.reqSpeed, setReqSpeed);
-  registerMonitor(device, serviceId, pao_ids.reqState, setReqState);
-  registerMonitor(device, serviceId, pao_ids.reqTorque, setReqTorque);
-  registerMonitor(device, serviceId, pao_ids.reqAccel, setReqAccel);
-  registerMonitor(device, serviceId, pao_ids.reqRegen, setReqRegen);
-  registerMonitor(device, serviceId, pao_ids.resMotorTemp, setResMotorTemp);
-  registerMonitor(device, serviceId, pao_ids.resInvTemp, setResInvTemp);
-  registerMonitor(device, serviceId, pao_ids.resTorque, setResTorque);
-  registerMonitor(device, serviceId, pao_ids.resSpeed, setResSpeed);
-  registerMonitor(device, serviceId, pao_ids.resState, setResState);
-  registerMonitor(device, serviceId, pao_ids.resDcVolt, setResDcVolt);
-  registerMonitor(device, serviceId, pao_ids.resDcCurrent, setResDcCurrent);
+  useEffect(() => {
+    const listeners = [
+      emitter.addListener(
+        'BleManagerDidUpdateValueForCharacteristic',
+        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
+          const peripheral = event.peripheral;
+          const characteristic = event.characteristic;
+          const value = Buffer.from(event.value);
+          switch (characteristic) {
+            case ids.reqSpeed:
+              setReqSpeed(value);
+              break;
+            case ids.reqState:
+              setReqState(value);
+              break;
+            case ids.reqTorque:
+              setReqTorque(value);
+              break;
+            case ids.reqAccel:
+              setReqAccel(value);
+              break;
+            case ids.reqRegen:
+              setReqRegen(value);
+              break;
+            case ids.resMotorTemp:
+              setResMotorTemp(value);
+              break;
+            case ids.resInvTemp:
+              setResInvTemp(value);
+              break;
+            case ids.resTorque:
+              setResTorque(value);
+              break;
+            case ids.resSpeed:
+              setResSpeed(value);
+              break;
+            case ids.resState:
+              setResState(value);
+              break;
+            case ids.resDcVolt:
+              setResDcVolt(value);
+              break;
+            case ids.resDcCurrent:
+              setResDcCurrent(value);
+              break;
+          }
+        },
+      ),
+    ];
+
+    return () => {
+      for (const listener of listeners) {
+        listener.remove();
+      }
+    };
+  }, [emitter]);
 
   return (
-    <View style={styles.container}>
-      <Text>Request</Text>
-      <Text>{reqState}</Text>
-      <Text>{reqSpeed}</Text>
-      <Text>{reqTorque}</Text>
-      <Text>{reqAccel}</Text>
-      <Text>{reqRegen}</Text>
-
-      <Text>Response</Text>
-      <Text>{resMotorTemp}</Text>
-      <Text>{resInvTemp}</Text>
-      <Text>{resTorque}</Text>
-      <Text>{resSpeed}</Text>
-      <Text>{resState}</Text>
-      <Text>{resDcVolt}</Text>
-      <Text>{resDcCurrent}</Text>
-
-    </View>
+    <ScreenWrapper>
+      <List.Section>
+        <ListItem mainText={reqAccel.toString()} secondaryText="Req Accel" />
+        <ListItem mainText={reqRegen.toString()} secondaryText="Req Regen" />
+        <ListItem mainText={reqSpeed.toString()} secondaryText="Req Speed" />
+        <ListItem mainText={reqState.toString()} secondaryText="Req State" />
+        <ListItem mainText={reqTorque.toString()} secondaryText="Req Torque" />
+        <ListItem
+          mainText={resDcCurrent.toString()}
+          secondaryText="Res Dc Current"
+        />
+        <ListItem mainText={resDcVolt.toString()} secondaryText="Res Dc Volt" />
+        <ListItem
+          mainText={resInvTemp.toString()}
+          secondaryText="Res Inv Temp"
+        />
+        <ListItem
+          mainText={resMotorTemp.toString()}
+          secondaryText="Res Motor Temp"
+        />
+        <ListItem mainText={resSpeed.toString()} secondaryText="Res Speed" />
+        <ListItem mainText={resState.toString()} secondaryText="Res State" />
+        <ListItem mainText={resTorque.toString()} secondaryText="Res Torque" />
+      </List.Section>
+    </ScreenWrapper>
   );
 }
 

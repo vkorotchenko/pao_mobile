@@ -1,18 +1,23 @@
+import * as React from 'react';
+import {useContext, useEffect, useState} from 'react';
 
-import {useContext, useEffect, useState} from "react";
-import {BleMainContext, BleMainContextType} from "../../components/ble/BleMainContext";
-import characteristics from "../../common/characteristics.json";
-import {handleUpdateValueForCharacteristic, registerMonitor} from "../../common/ble";
-import { BleManagerDidUpdateValueForCharacteristicEvent } from 'react-native-ble-manager';
-import { StyleSheet, Image, View } from 'react-native';
-import { Caption, List, Text, Chip, Divider } from 'react-native-paper';
+// @ts-ignore
+import characteristics from '../../config/characteristics.json';
+import {
+  BleContext,
+  BleContextType,
+} from '../../components/ble/BleContext';
+import {handleUpdateValueForCharacteristic} from '../../common/ble';
+import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
+import {StyleSheet, Image, View} from 'react-native';
+import {List} from 'react-native-paper';
+import {ListItem} from '../ListItem';
+import ScreenWrapper from '../../common/ScreenWrapper';
 
-var Buffer = require('buffer/').Buffer
-
+var Buffer = require('buffer/').Buffer;
 
 export default function ConfigScreen() {
-
-  const {emitter, device} = useContext(BleMainContext) as BleMainContextType;
+  const {emitter} = useContext(BleContext) as BleContextType;
 
   const [configSpeedMax, setConfigSpeedMax] = useState(0);
   const [configTorqueMax, setConfigTorqueMax] = useState(0);
@@ -41,66 +46,66 @@ export default function ConfigScreen() {
     const listeners = [
       emitter.addListener(
         'BleManagerDidUpdateValueForCharacteristic',
-        (event: BleManagerDidUpdateValueForCharacteristicEvent)=>  {
+        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
           const peripheral = event.peripheral;
           const characteristic = event.characteristic;
           const value = Buffer.from(event.value);
           switch (characteristic) {
-            case ids.speedMax:
+            case ids.configSpeedMax:
               setConfigSpeedMax(value);
               break;
-            case ids.torqueMax:
+            case ids.configTorqueMax:
               setConfigTorqueMax(value);
               break;
-            case ids.speedSlewRate:
+            case ids.configSpeedSlewRate:
               setConfigSpeedSlewRate(value);
               break;
-            case ids.torqueSlewRate:
+            case ids.configTorqueSlewRate:
               setConfigTorqueSlewRate(value);
               break;
-            case ids.reversePercent:
+            case ids.configReversePercent:
               setConfigReversePercent(value);
               break;
-            case ids.kilowattHrs:
+            case ids.configKilowattHrs:
               setConfigKilowattHrs(value);
               break;
-            case ids.prechargeR:
+            case ids.configPrechargeR:
               setConfigPrechargeR(value);
               break;
-            case ids.nominalVolt:
+            case ids.configNominalVolt:
               setConfigNominalVolt(value);
               break;
-            case ids.prechargeRelay:
+            case ids.configPrechargeRelay:
               setConfigPrechargeRelay(value);
               break;
-            case ids.mainContactorRelay:
+            case ids.configMainContactorRelay:
               setConfigMainContactorRelay(value);
               break;
-            case ids.coolFan:
+            case ids.configCoolFan:
               setConfigCoolFan(value);
               break;
-            case ids.coolOn:
+            case ids.configCoolOn:
               setConfigCoolOn(value);
               break;
-            case ids.coolOff:
+            case ids.configCoolOff:
               setConfigCoolOff(value);
               break;
-            case ids.brakeLight:
+            case ids.configBrakeLight:
               setConfigBrakeLight(value);
               break;
-            case ids.revLight:
+            case ids.configRevLight:
               setConfigRevLight(value);
               break;
-            case ids.enableIn:
+            case ids.configEnableIn:
               setConfigEnableIn(value);
               break;
-            case ids.reverseIn:
+            case ids.configReverseIn:
               setConfigReverseIn(value);
               break;
-            case ids.regenTaperLower:
+            case ids.configRegenTaperLower:
               setConfigRegenTaperLower(value);
               break;
-            case ids.regenTaperUpper:
+            case ids.configRegenTaperUpper:
               setConfigRegenTaperUpper(value);
               break;
           }
@@ -116,45 +121,84 @@ export default function ConfigScreen() {
   }, [emitter]);
 
   return (
-
-    <List.Section>
-      <List.Subheader>Single line</List.Subheader>
-      <List.Item
-        left={(props) => <List.Icon {...props} icon="calendar" />}
-        title="List item 1"
-      />
-      <List.Item
-        left={(props) => <List.Icon {...props} icon="wallet-giftcard" />}
-        title="List item 2"
-      />
-      <List.Item
-        title="List item 3"
-        left={(props) => <List.Icon {...props} icon="folder" />}
-        right={(props) => <List.Icon {...props} icon="equal" />}
-      />
-    </List.Section>
-    // <View style={styles.container}>
-    //   <Text>Config</Text>
-    //   <Text>{configSpeedMax}</Text>
-    //   <Text>{configTorqueMax}</Text>
-    //   <Text>{configSpeedSlewRate}</Text>
-    //   <Text>{configTorqueSlewRate}</Text>
-    //   <Text>{configReversePercent}</Text>
-    //   <Text>{configKilowattHrs}</Text>
-    //   <Text>{configPrechargeR}</Text>
-    //   <Text>{configNominalVolt}</Text>
-    //   <Text>{configPrechargeRelay}</Text>
-    //   <Text>{configMainContactorRelay}</Text>
-    //   <Text>{configCoolFan}</Text>
-    //   <Text>{configCoolOn}</Text>
-    //   <Text>{configCoolOff}</Text>
-    //   <Text>{configBrakeLight}</Text>
-    //   <Text>{configRevLight}</Text>
-    //   <Text>{configEnableIn}</Text>
-    //   <Text>{configReverseIn}</Text>
-    //   <Text>{configRegenTaperLower}</Text>
-    //   <Text>{configRegenTaperUpper}</Text>
-    // </View>
+    <ScreenWrapper>
+      <List.Section>
+        <List.Subheader>Configurations</List.Subheader>
+        <ListItem
+          mainText={configSpeedMax.toString()}
+          secondaryText="Speed Max"
+        />
+        <ListItem
+          mainText={configTorqueMax.toString()}
+          secondaryText="Torque Max"
+        />
+        <ListItem
+          mainText={configSpeedSlewRate.toString()}
+          secondaryText="Speed Slew Rate"
+        />
+        <ListItem
+          mainText={configTorqueSlewRate.toString()}
+          secondaryText="Torque Slew Rate"
+        />
+        <ListItem
+          mainText={configReversePercent.toString()}
+          secondaryText="Reverse Percent"
+        />
+        <ListItem
+          mainText={configKilowattHrs.toString()}
+          secondaryText="Kilowatt Hrs"
+        />
+        <ListItem
+          mainText={configPrechargeR.toString()}
+          secondaryText="Precharge R"
+        />
+        <ListItem
+          mainText={configNominalVolt.toString()}
+          secondaryText="Nominal Volt"
+        />
+        <ListItem
+          mainText={configPrechargeRelay.toString()}
+          secondaryText="Precharge Relay"
+        />
+        <ListItem
+          mainText={configMainContactorRelay.toString()}
+          secondaryText="Main Contactor Relay"
+        />
+        <ListItem
+          mainText={configCoolFan.toString()}
+          secondaryText="Cool Fan"
+        />
+        <ListItem mainText={configCoolOn.toString()} secondaryText="Cool On" />
+        <ListItem
+          mainText={configCoolOff.toString()}
+          secondaryText="Cool Off"
+        />
+        <ListItem
+          mainText={configBrakeLight.toString()}
+          secondaryText="Brake Light"
+        />
+        <ListItem
+          mainText={configRevLight.toString()}
+          secondaryText="Rev Light"
+        />
+        <ListItem
+          mainText={configEnableIn.toString()}
+          secondaryText="Enable In"
+        />
+        <ListItem
+          mainText={configReverseIn.toString()}
+          secondaryText="Reverse In"
+        />
+        <ListItem
+          mainText={configRegenTaperLower.toString()}
+          secondaryText="Regen Taper Lower"
+        />
+        <ListItem
+          mainText={configRegenTaperUpper.toString()}
+          secondaryText="Regen Taper Upper"
+        />
+      </List.Section>
+    </ScreenWrapper>
   );
 }
 

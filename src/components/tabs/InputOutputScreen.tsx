@@ -1,15 +1,19 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
+import * as React from 'react';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import {useContext, useState} from "react";
-import {BleMainContext} from "../../components/ble/BleMainContext";
-import characteristics from "../../common/characteristics.json";
-import {registerMonitor} from "../../common/ble";
+// @ts-ignore
+import characteristics from '../../config/characteristics.json';
+import {useContext, useEffect, useState} from 'react';
+import {BleContext, BleContextType} from '../../components/ble/BleContext';
+import {ListItem} from '../ListItem';
+import {Divider, List} from 'react-native-paper';
+import ScreenWrapper from '../../common/ScreenWrapper';
+import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
+
+var Buffer = require('buffer/').Buffer;
 
 export default function InputOutputScreen() {
-
-  const {device} = useContext(BleMainContext);
+  const {emitter} = useContext(BleContext) as BleContextType;
 
   const [outMainCon, setOutMainCon] = useState(0);
   const [outPreCon, setOutPreCon] = useState(0);
@@ -28,40 +32,105 @@ export default function InputOutputScreen() {
   const ids = characteristics.evcu.input_output;
   const status_ids = characteristics.evcu.status;
 
-  registerMonitor(device, serviceId, ids.outMainCon, setOutMainCon);
-  registerMonitor(device, serviceId, ids.outPreCon, setOutPreCon);
-  registerMonitor(device, serviceId, ids.outBrake, setOutBrake);
-  registerMonitor(device, serviceId, ids.outCooling, setOutCooling);
-  registerMonitor(device, serviceId, ids.outReverseLight, setOutReverseLight);
-  registerMonitor(device, serviceId, ids.inReverse, setInReverse);
-  registerMonitor(device, serviceId, ids.inEnable, setInEnable);
-  registerMonitor(device, serviceId, ids.inThrottle, setInThrottle);
-  registerMonitor(device, serviceId, ids.inBrake, setInBrake);
+  useEffect(() => {
+    const listeners = [
+      emitter.addListener(
+        'BleManagerDidUpdateValueForCharacteristic',
+        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
+          const peripheral = event.peripheral;
+          const characteristic = event.characteristic;
+          const value = Buffer.from(event.value);
+          if (event.service === serviceId) {
+            switch (characteristic) {
+              case ids.outMainCon:
+                setOutMainCon(value);
+                break;
+              case ids.outPreCon:
+                setOutPreCon(value);
+                break;
+              case ids.outBrake:
+                setOutBrake(value);
+                break;
+              case ids.outCooling:
+                setOutCooling(value);
+                break;
+              case ids.outReverseLight:
+                setOutReverseLight(value);
+                break;
+              case ids.inReverse:
+                setInReverse(value);
+                break;
+              case ids.inEnable:
+                setInEnable(value);
+                break;
+              case ids.inThrottle:
+                setInThrottle(value);
+                break;
+              case ids.inBrake:
+                setInBrake(value);
+                break;
+            }
+          } else if (event.service === status_ids) {
+            switch (characteristic) {
+              case status_ids.isRunning:
+                setIsRunning(value);
+                break;
+              case status_ids.isFaulted:
+                setIsFaulted(value);
+                break;
+              case status_ids.isWarning:
+                setIsWarning(value);
+                break;
+            }
+          }
+        },
+      ),
+    ];
 
-
-  registerMonitor(device, serviceId, status_ids.isWarning, setIsWarning);
-  registerMonitor(device, serviceId, status_ids.isFaulted, setIsFaulted);
-  registerMonitor(device, serviceId, status_ids.isRunning, setIsRunning);
-
+    return () => {
+      for (const listener of listeners) {
+        listener.remove();
+      }
+    };
+  }, [emitter]);
 
   return (
-    <View style={styles.container}>
-      <Text>Input</Text>
-      <Text>{outMainCon}</Text>
-      <Text>{outPreCon}</Text>
-      <Text>{outBrake}</Text>
-      <Text>{outCooling}</Text>
-      <Text>{outReverseLight}</Text>
-      <Text>OutPut</Text>
-      <Text>{inReverse}</Text>
-      <Text>{inEnable}</Text>
-      <Text>{inThrottle}</Text>
-      <Text>{inBrake}</Text>
-      <Text>Status</Text>
-      <Text>{isRunning}</Text>
-      <Text>{isFaulted}</Text>
-      <Text>{isWarning}</Text>
-    </View>
+    <ScreenWrapper>
+      <List.Section>
+        <List.Subheader>Configurations</List.Subheader>
+        <ListItem
+          mainText={outMainCon.toString()}
+          secondaryText="Main Contactor"
+        />
+        <ListItem
+          mainText={outPreCon.toString()}
+          secondaryText="Precharge Contactor"
+        />
+        <ListItem mainText={outBrake.toString()} secondaryText="Brake Light" />
+        <ListItem
+          mainText={outCooling.toString()}
+          secondaryText="Cooling Fan"
+        />
+        <ListItem
+          mainText={outReverseLight.toString()}
+          secondaryText="Reverse Light"
+        />
+        <ListItem
+          mainText={inReverse.toString()}
+          secondaryText="Reverse Switch"
+        />
+        <ListItem
+          mainText={inEnable.toString()}
+          secondaryText="Enable Switch"
+        />
+        <ListItem mainText={inThrottle.toString()} secondaryText="Throttle" />
+        <ListItem mainText={inBrake.toString()} secondaryText="Brake" />
+        <Divider />
+        <ListItem mainText={isRunning.toString()} secondaryText="Running" />
+        <ListItem mainText={isFaulted.toString()} secondaryText="Faulted" />
+        <ListItem mainText={isWarning.toString()} secondaryText="Warning" />
+      </List.Section>
+    </ScreenWrapper>
   );
 }
 

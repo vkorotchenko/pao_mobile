@@ -7,8 +7,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { useTheme } from 'react-native-paper';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {useTheme} from 'react-native-paper';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 type Props = ScrollViewProps & {
   children: React.ReactNode;
@@ -18,12 +18,12 @@ type Props = ScrollViewProps & {
 };
 
 export default function ScreenWrapper({
-                                        children,
-                                        withScrollView = true,
-                                        style,
-                                        contentContainerStyle,
-                                        ...rest
-                                      }: Props) {
+  children,
+  withScrollView = true,
+  style,
+  contentContainerStyle,
+  ...rest
+}: Props) {
   const theme = useTheme();
 
   const insets = useSafeAreaInsets();
@@ -46,8 +46,7 @@ export default function ScreenWrapper({
           contentContainerStyle={contentContainerStyle}
           alwaysBounceVertical={false}
           showsVerticalScrollIndicator={false}
-          style={[containerStyle, style]}
-        >
+          style={[containerStyle, style]}>
           {children}
         </ScrollView>
       ) : (

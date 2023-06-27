@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import {Dispatch} from 'react';
 import BleManager, {
   BleDisconnectPeripheralEvent,
   BleManagerDidUpdateValueForCharacteristicEvent,
@@ -8,47 +8,44 @@ import BleManager, {
   BleScanMode,
   Peripheral,
 } from 'react-native-ble-manager';
-import {
-  NativeEventEmitter,
-  PermissionsAndroid,
-  Platform,
-} from 'react-native';
+import {NativeEventEmitter, PermissionsAndroid, Platform} from 'react-native';
 
 export type Peripherals = Map<Peripheral['id'], Peripheral>;
 type SetPeripherals = Dispatch<React.SetStateAction<Peripherals>>;
 type SetIsScanning = Dispatch<React.SetStateAction<boolean>>;
+var Buffer = require('buffer/').Buffer;
+
 
 const SECONDS_TO_SCAN_FOR = 7;
 const SERVICE_UUIDS: string[] = [];
 const ALLOW_DUPLICATES = true;
 
-export const registerMonitor = (device: any, serviceId:string, characteristicId:string, setState:(value:any)=>void) => {
-  // device?.monitorCharacteristicForService(
-  //   serviceId,
-  //   characteristicId,
-  //   (error: BleError | null, characteristic: Characteristic | null) => {
-  //     if (error) {
-  //       console.log("Error: ", error.message);
-  //       return;
-  //     }
-  //     if (characteristic && characteristic.value) {
-  //       // @ts-ignore
-  //       setState(characteristic.value);
-  //     }
-  //   },
-  // );
-}
-
-export const addOrUpdatePeripheral = (id: string, updatedPeripheral: Peripheral, setPeripherals: SetPeripherals) => {
+const addPeripheral = (
+  id: string,
+  updatedPeripheral: Peripheral,
+  setPeripherals: SetPeripherals,
+) => {
   // new Map() enables changing the reference & refreshing UI.
   // TOFIX not efficient.
-  setPeripherals(map => new Map<string, Peripheral>(map.set(id, updatedPeripheral)));
+  setPeripherals(
+    map => new Map<string, Peripheral>(map.set(id, updatedPeripheral)),
+  );
 };
 
-export const startScan = (isScanning:boolean, setPeripheral: SetPeripherals, setIsScanning: SetIsScanning) => {
+export const isConnected = (id: string, peripherals: Peripherals) => {
+  peripherals.forEach(p => {
+    if (p.name === id) {
+      return true;
+    }
+  });
+  return false;
+};
+
+export const startScan = (
+  isScanning: boolean,
+  setIsScanning: SetIsScanning,
+) => {
   if (!isScanning) {
-    // reset found peripherals before scan
-    setPeripheral(new Map<Peripheral['id'], Peripheral>());
 
     try {
       console.debug('[startScan] starting scan...');
@@ -81,12 +78,13 @@ export const handleDisconnectedPeripheral = (
   setPeripherals: SetPeripherals,
 ) => {
   let peripheral = peripherals.get(event.peripheral);
+  
   if (peripheral) {
     console.debug(
-      `[handleDisconnectedPeripheral][${peripheral.id}] previously connected peripheral is disconnected.`,
+      `[handleDisconnectedPeripheral][${peripheral.name}] previously connected peripheral is disconnected.`,
       event.peripheral,
     );
-    addOrUpdatePeripheral(peripheral.id, {...peripheral}, setPeripherals);
+    addPeripheral(peripheral.id, {...peripheral}, setPeripherals);
   }
   console.debug(
     `[handleDisconnectedPeripheral][${event.peripheral}] disconnected.`,
@@ -101,7 +99,12 @@ export const handleUpdateValueForCharacteristic = (
   );
 };
 
-export const handleDiscoverPeripheral = (peripheral: BleDiscoverPeripheralEvent,peripherals:Peripherals, setPeripherals: SetPeripherals) => {
+export const handleDiscoverPeripheral = (
+  peripheral: BleDiscoverPeripheralEvent,
+  peripherals: Peripherals,
+  setPeripherals: SetPeripherals,
+  setScanning: SetIsScanning,
+) => {
   console.debug('[handleDiscoverPeripheral] new BLE peripheral=', peripheral);
   switch (peripheral.name) {
     case 'NO NAME':
@@ -110,24 +113,22 @@ export const handleDiscoverPeripheral = (peripheral: BleDiscoverPeripheralEvent,
     case 'Pao EVCU':
     case 'Pao Charger':
       connectPeripheral(peripheral, peripherals, setPeripherals);
+      setScanning(false);
       break;
-
-
   }
-
-  if (!peripheral.name) {
-
-  }
-  addOrUpdatePeripheral(peripheral.id, peripheral, setPeripherals);
 };
 
-export const togglePeripheralConnection = async (peripheral: Peripheral, peripherals: Peripherals, setPeripherals: SetPeripherals) => {
+export const togglePeripheralConnection = async (
+  peripheral: Peripheral,
+  peripherals: Peripherals,
+  setPeripherals: SetPeripherals,
+) => {
   if (peripheral) {
     try {
       await BleManager.disconnect(peripheral.id);
     } catch (error) {
       console.error(
-        `[togglePeripheralConnection][${peripheral.id}] error when trying to disconnect device.`,
+        `[togglePeripheralConnection][${peripheral.name}] error when trying to disconnect device.`,
         error,
       );
     }
@@ -135,42 +136,44 @@ export const togglePeripheralConnection = async (peripheral: Peripheral, periphe
     await connectPeripheral(peripheral, peripherals, setPeripherals);
   }
 };
+//
+// export const retrieveConnected = async (setPeripherals: SetPeripherals) => {
+//   try {
+//     const connectedPeripherals = await BleManager.getConnectedPeripherals();
+//     if (connectedPeripherals.length === 0) {
+//       console.warn('[retrieveConnected] No connected peripherals found.');
+//       return;
+//     }
+//
+//     console.debug(
+//       '[retrieveConnected] connectedPeripherals',
+//       connectedPeripherals,
+//     );
+//
+//     for (var i = 0; i < connectedPeripherals.length; i++) {
+//       var peripheral = connectedPeripherals[i];
+//       addOrUpdatePeripheral(peripheral.id, {...peripheral}, setPeripherals);
+//     }
+//   } catch (error) {
+//     console.error(
+//       '[retrieveConnected] unable to retrieve connected peripherals.',
+//       error,
+//     );
+//   }
+// };
 
-export const retrieveConnected = async (setPeripherals: SetPeripherals) => {
-  try {
-    const connectedPeripherals = await BleManager.getConnectedPeripherals();
-    if (connectedPeripherals.length === 0) {
-      console.warn('[retrieveConnected] No connected peripherals found.');
-      return;
-    }
-
-    console.debug(
-      '[retrieveConnected] connectedPeripherals',
-      connectedPeripherals,
-    );
-
-    for (var i = 0; i < connectedPeripherals.length; i++) {
-      var peripheral = connectedPeripherals[i];
-      addOrUpdatePeripheral(peripheral.id, {...peripheral}, setPeripherals);
-    }
-  } catch (error) {
-    console.error(
-      '[retrieveConnected] unable to retrieve connected peripherals.',
-      error,
-    );
-  }
-};
-
-export const connectPeripheral = async (peripheral: Peripheral, peripherals: Peripherals, setPeripherals: SetPeripherals) => {
+export const connectPeripheral = async (
+  peripheral: Peripheral,
+  peripherals: Peripherals,
+  setPeripherals: SetPeripherals,
+) => {
   try {
     if (peripheral) {
-      addOrUpdatePeripheral(peripheral.id, {...peripheral}, setPeripherals);
 
       await BleManager.connect(peripheral.id);
       console.debug(`[connectPeripheral][${peripheral.id}] connected.`);
 
-      addOrUpdatePeripheral(peripheral.id, {...peripheral},
-        setPeripherals);
+      addPeripheral(peripheral.id, {...peripheral}, setPeripherals);
 
       // before retrieving services, it is often a good idea to let bonding & connection finish properly
       await sleep(900);
@@ -180,11 +183,6 @@ export const connectPeripheral = async (peripheral: Peripheral, peripherals: Per
       console.debug(
         `[connectPeripheral][${peripheral.id}] retrieved peripheral services`,
         peripheralData,
-      );
-
-      const rssi = await BleManager.readRSSI(peripheral.id);
-      console.debug(
-        `[connectPeripheral][${peripheral.id}] retrieved current RSSI value: ${rssi}.`,
       );
 
       if (peripheralData.characteristics) {
@@ -200,7 +198,7 @@ export const connectPeripheral = async (peripheral: Peripheral, peripherals: Per
                 );
                 console.debug(
                   `[connectPeripheral][${peripheral.id}] descriptor read as:`,
-                  data,
+                  Buffer.from(data),
                 );
               } catch (error) {
                 console.error(
@@ -211,11 +209,6 @@ export const connectPeripheral = async (peripheral: Peripheral, peripherals: Per
             }
           }
         }
-      }
-
-      let p = peripherals.get(peripheral.id);
-      if (p) {
-        addOrUpdatePeripheral(peripheral.id, {...peripheral, rssi}, setPeripherals);
       }
     }
   } catch (error) {
@@ -229,7 +222,6 @@ export const connectPeripheral = async (peripheral: Peripheral, peripherals: Per
 function sleep(ms: number) {
   return new Promise<void>(resolve => setTimeout(resolve, ms));
 }
-
 
 export const handleAndroidPermissions = () => {
   if (Platform.OS === 'android' && Platform.Version >= 31) {
