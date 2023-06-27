@@ -55,11 +55,20 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-
   const [isScanning, setIsScanning] = useState(false);
   const [peripherals, setPeripherals] = useState(
     new Map<Peripheral['id'], Peripheral>() as Peripherals
   );
+
+
+  const getPeripheralByName = (name: string) => {
+    // @ts-ignore
+    for (let p of peripherals.values()) {
+      if (p.name === name) {
+        return p;
+      }
+    }
+  }
 
   useEffect(() => {
     try {
@@ -105,21 +114,26 @@ function App(): JSX.Element {
   }, [bleManagerEmitter]);
 
   const tabMap = {
-    pao: () => <PaoMainScreen />,
-    charging: () => <ChargingScreen />,
-    inputOutput: () => <InputOutputScreen />,
-    config: () => <ConfigScreen />,
+    pao: () => <PaoMainScreen/>,
+    charging: () => <ChargingScreen/>,
+    inputOutput: () => <InputOutputScreen/>,
+    config: () => <ConfigScreen/>,
   };
 
   return (
     <PaperProvider>
       <ScreenWrapper contentContainerStyle={styles.container}>
-        <BleContext.Provider value={{emitter: bleManagerEmitter}}>
+        <BleContext.Provider value={{
+          emitter: bleManagerEmitter,
+          evcu: getPeripheralByName('Pao EVCU'),
+          charger: getPeripheralByName('Pao Charger')
+        }}>
           <View style={styles.screen}>
             <FloatingIcons
               isScanning={isScanning}
-              isMainConnected={()=>isConnected('Pao EVCU', peripherals)}
-              isChargerConnected={()=>isConnected('Pao Charger', peripherals)}
+              isMainConnected={() => isConnected('Pao EVCU', peripherals)}
+              isChargerConnected={() => isConnected('Pao Charger', peripherals)}
+              setIsScanning={setIsScanning}
             />
 
             <BottomNavigation

@@ -4,15 +4,18 @@ import * as React from 'react';
 // @ts-ignore
 import characteristics from '../../config/characteristics.json';
 import {BleContextType, BleContext} from '../../components/ble/BleContext';
-import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
 import ScreenWrapper from '../../common/ScreenWrapper';
 import {List} from 'react-native-paper';
 import {ListItem} from '../ListItem';
 import {useContext, useEffect, useState} from 'react';
 var Buffer = require('buffer/').Buffer;
 
+import BleManager, {
+  BleManagerDidUpdateValueForCharacteristicEvent,
+} from 'react-native-ble-manager';
+import { startNotifyListener } from '../../common/ble';
 export default function ChargingScreen() {
-  const {emitter} = useContext(BleContext) as BleContextType;
+  const {charger, emitter} = useContext(BleContext) as BleContextType;
 
   const [reqVolt, setReqVolt] = useState(0);
   const [reqAmp, setReqAmp] = useState(0);
@@ -24,52 +27,26 @@ export default function ChargingScreen() {
   const ids = characteristics.charger.charging;
 
   useEffect(() => {
-    const listeners = [
-      emitter.addListener(
-        'BleManagerDidUpdateValueForCharacteristic',
-        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
-          const peripheral = event.peripheral;
-          const characteristic = event.characteristic;
-          const value = Buffer.from(event.value);
-          switch (characteristic) {
-            case ids.reqVolt:
-              setReqVolt(value);
-              break;
-            case ids.reqAmp:
-              setReqAmp(value);
-              break;
-            case ids.resVolt:
-              setResVolt(value);
-              break;
-            case ids.resAmp:
-              setResAmp(value);
-              break;
-            case ids.elapsedTime:
-              setElapsedTime(value);
-              break;
-          }
-        },
-      ),
-    ];
-
-    return () => {
-      for (const listener of listeners) {
-        listener.remove();
-      }
-    };
+    
+    startNotifyListener(charger?.id, serviceId, ids.elapsedTime, emitter, setElapsedTime);
+    // startNotifyListener(charger?.id, serviceId, ids.reqVolt, emitter, setReqVolt);
+    // startNotifyListener(charger?.id, serviceId, ids.reqAmp, emitter, setReqAmp);
+    // startNotifyListener(charger?.id, serviceId, ids.resVolt, emitter, setResVolt);
+    // startNotifyListener(charger?.id, serviceId, ids.resAmp, emitter, setResAmp);
   }, [emitter]);
 
   return (
     <ScreenWrapper>
       <List.Section>
         <List.Subheader>Configurations</List.Subheader>
-        <ListItem mainText={reqVolt.toString()} secondaryText="Req Volt" />
-        <ListItem mainText={reqAmp.toString()} secondaryText="Req Amp" />
-        <ListItem mainText={resVolt.toString()} secondaryText="Res Volt" />
-        <ListItem mainText={resAmp.toString()} secondaryText="Res Amp" />
+        <ListItem mainText={reqVolt.toString()} secondaryText="Req Volt" key="req_volt"/>
+        <ListItem mainText={reqAmp.toString()} secondaryText="Req Amp" key="req_amp"/>
+        <ListItem mainText={resVolt.toString()} secondaryText="Res Volt" key="res_volt" />
+        <ListItem mainText={resAmp.toString()} secondaryText="Res Amp" key="res_amp"/>
         <ListItem
           mainText={elapsedTime.toString()}
           secondaryText="Elapsed Time"
+          key="elapsed_time"
         />
       </List.Section>
     </ScreenWrapper>

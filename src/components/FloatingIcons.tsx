@@ -1,16 +1,19 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {FAB, Portal} from 'react-native-paper';
+import {SetIsScanning, startScan } from '../common/ble';
 
 export interface FloatingIconsProps {
   readonly isMainConnected: ()=> boolean;
   readonly isChargerConnected: () =>boolean;
   readonly isScanning: boolean;
+  readonly setIsScanning: SetIsScanning;
 }
 export const FloatingIcons: React.FC<FloatingIconsProps> = ({
   isMainConnected,
   isChargerConnected,
   isScanning,
+  setIsScanning
 }) => {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -24,14 +27,14 @@ export const FloatingIcons: React.FC<FloatingIconsProps> = ({
             icon: isMainConnected() ? 'bluetooth' : 'bluetooth-off',
             accessibilityLabel: 'EVCU',
             onPress: () => {
-              // disconnect? refresh?
+              startScan(isScanning, setIsScanning);
             },
           },
           {
             icon: isChargerConnected() ? 'battery-bluetooth' : 'battery',
             accessibilityLabel: 'Charger',
             onPress: () => {
-              //  disconnect? refresh?
+              startScan(isScanning, setIsScanning);
             },
           },
         ]}

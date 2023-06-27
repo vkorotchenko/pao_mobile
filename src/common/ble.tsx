@@ -12,11 +12,11 @@ import {NativeEventEmitter, PermissionsAndroid, Platform} from 'react-native';
 
 export type Peripherals = Map<Peripheral['id'], Peripheral>;
 type SetPeripherals = Dispatch<React.SetStateAction<Peripherals>>;
-type SetIsScanning = Dispatch<React.SetStateAction<boolean>>;
+export type SetIsScanning = Dispatch<React.SetStateAction<boolean>>;
 var Buffer = require('buffer/').Buffer;
 
 
-const SECONDS_TO_SCAN_FOR = 7;
+const SECONDS_TO_SCAN_FOR = 1;
 const SERVICE_UUIDS: string[] = [];
 const ALLOW_DUPLICATES = true;
 
@@ -79,7 +79,7 @@ export const handleDisconnectedPeripheral = (
   setPeripherals: SetPeripherals,
 ) => {
   let peripheral = peripherals.get(event.peripheral);
-  
+
   if (peripheral) {
     console.debug(
       `[handleDisconnectedPeripheral][${peripheral.name}] previously connected peripheral is disconnected.`,
@@ -108,15 +108,37 @@ export const handleDiscoverPeripheral = (
 ) => {
   console.debug('[handleDiscoverPeripheral] new BLE peripheral=', peripheral);
   switch (peripheral.name) {
-    case 'NO NAME':
-      peripheral.name = 'NO NAME';
-      break;
     case 'Pao EVCU':
     case 'Pao Charger':
       connectPeripheral(peripheral, peripherals, setPeripherals);
       setScanning(false);
       break;
   }
+};
+export const startNotifyListener =
+  (peripheralId: string, serviceUUID: string, characteristicUUID: string, emitter: NativeEventEmitter, setState: (value: any) => void) => {
+    BleManager.startNotification(peripheralId, serviceUUID, characteristicUUID)
+      .then(async res => {
+        emitter.addListener(
+          'BleManagerDidUpdateValueForCharacteristic',
+          (data: BleManagerDidUpdateValueForCharacteristicEvent) => {
+            const peripheral = data.peripheral;
+            const characteristic = data.characteristic;
+            const value = data.value;
+            const stringValue : string = Buffer.from(value).toString();
+            const intValue : number = parseInt(stringValue,16);
+            if ( isNaN(intValue)) {
+              setState(value)
+            } else {
+              setState(intValue);
+            }
+          },
+        );
+      })
+      .catch(error => {
+        console.debug('[ChargingScreen] could not add listener');
+      });
+
 };
 
 export const togglePeripheralConnection = async (
