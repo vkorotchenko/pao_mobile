@@ -33,12 +33,13 @@ const addPeripheral = (
 };
 
 export const isConnected = (id: string, peripherals: Peripherals) => {
+  var isPeripheralConnected = false
   peripherals.forEach(p => {
     if (p.name === id) {
-      return true;
+      isPeripheralConnected = true;
     }
   });
-  return false;
+  return isPeripheralConnected;
 };
 
 export const startScan = (

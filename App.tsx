@@ -66,7 +66,6 @@ function App(): JSX.Element {
       BleManager.start({showAlert: false})
         .then(() => {
           console.debug('BleManager started.');
-          handleAndroidPermissions();
         })
         .catch(error =>
           console.error('BeManager could not be started.', error),
@@ -76,6 +75,7 @@ function App(): JSX.Element {
       return;
     }
 
+    handleAndroidPermissions();
     startScan(isScanning, setIsScanning);
 
     const listeners = [
@@ -118,8 +118,8 @@ function App(): JSX.Element {
           <View style={styles.screen}>
             <FloatingIcons
               isScanning={isScanning}
-              isMainConnected={isConnected('Pao_EVCU', peripherals)}
-              isChargerConnected={isConnected('Pao_Charger', peripherals)}
+              isMainConnected={()=>isConnected('Pao EVCU', peripherals)}
+              isChargerConnected={()=>isConnected('Pao Charger', peripherals)}
             />
 
             <BottomNavigation
