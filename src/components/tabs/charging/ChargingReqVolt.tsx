@@ -1,27 +1,25 @@
-import React, {useContext, useEffect, useState } from "react";
-import { BleContext, BleContextType } from "../../ble/BleContext";
+import React, {useContext, useEffect, useState} from "react";
+import {BleContext, BleContextType} from "../../ble/BleContext";
 import characteristics from '../../../config/characteristics.json';
-import { startNotifyListener } from '../../../common/ble';
-import { Chip } from "react-native-paper";
-import { DisaplayElement } from "../../DisaplayElement";
-import { getDecimalDisplayValue } from "../../../common/util";
+import {startNotifyListener} from '../../../common/ble';
+import {Chip} from "react-native-paper";
+import {DisaplayElement} from "../../DisaplayElement";
+import {getDecimalDisplayValue} from "../../../common/util";
+import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayElement";
 
 
-export const ChargingReqVolt: React.FC<{ }> = props => {
-  const {charger, emitter} = useContext(BleContext) as BleContextType;
-
-  const [reqVolt, setReqVolt] = useState(0);
-
+export const ChargingReqVolt: React.FC<{}> = props => {
   const serviceId = characteristics.charger.id;
   const ids = characteristics.charger.charging;
 
-  useEffect(() => {
-    startNotifyListener(charger?.id, serviceId, ids.reqVolt, emitter, setReqVolt);
-  }, [emitter]);
-
   return (
     <>
-      <DisaplayElement value={getDecimalDisplayValue(reqVolt, 1)} label={'Request Volt'}/>
+      <BleListeningDisplayElement isCharger={true}
+                                  serviceId={serviceId}
+                                  characteristicId={ids.reqVolt}
+                                  label={"Request Volt"}
+                                  modifier={(value => getDecimalDisplayValue(value, 1))}
+                                  key={"req_volt"}/>
     </>
   );
 };

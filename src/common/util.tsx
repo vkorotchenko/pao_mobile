@@ -12,6 +12,6 @@ export const toTimeString = (totalSeconds: number) => {
 
     return result;
   } catch (e) {
-    return totalSeconds
+    return totalSeconds.toString();
   }
 };

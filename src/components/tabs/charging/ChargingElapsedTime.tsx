@@ -5,24 +5,21 @@ import {startNotifyListener} from '../../../common/ble';
 import {Chip} from "react-native-paper";
 import {DisaplayElement} from "../../DisaplayElement";
 import {toTimeString} from "../../../common/util";
+import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayElement";
 
 
 export const ChargingElapsedTime: React.FC<{}> = props => {
-  const {charger, emitter} = useContext(BleContext) as BleContextType;
-
-  const [elapsedTime, setElapsedTime] = useState(0);
-
   const serviceId = characteristics.charger.id;
   const ids = characteristics.charger.charging;
 
-  useEffect(() => {
-    startNotifyListener(charger?.id, serviceId, ids.elapsedTime, emitter, setElapsedTime);
-
-  }, [emitter]);
-
   return (
     <>
-      <DisaplayElement value={toTimeString(elapsedTime)} label={'Elapsed Time'}/>
+      <BleListeningDisplayElement isCharger={true}
+                                  serviceId={serviceId}
+                                  characteristicId={ids.elapsedTime}
+                                  label={"Elapsed Time"}
+                                  modifier={(value => toTimeString(value))}
+                                  key={"elapsed_time"}/>
     </>
   );
 };

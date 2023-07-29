@@ -22,9 +22,12 @@ import {ChargingReqAmp} from './charging/ChargingReqAmp';
 import {ChargingResVolt} from './charging/ChargingResVolt';
 import {ChargingResAmp} from './charging/ChargingResAmp';
 import {ChargingReqVolt} from './charging/ChargingReqVolt';
+import {BleListeningDisplayElement} from '../../common/BleListeningDisplayElement';
+import {getDecimalDisplayValue, toTimeString} from '../../common/util';
 
 export default function ChargingScreen() {
-
+  const serviceId = characteristics.charger.id;
+  const ids = characteristics.charger.charging;
   return (
     <ScreenWrapper>
       <Grid>

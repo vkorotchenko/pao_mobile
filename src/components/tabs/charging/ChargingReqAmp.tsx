@@ -5,23 +5,21 @@ import {startNotifyListener} from '../../../common/ble';
 import {Chip} from "react-native-paper";
 import {DisaplayElement} from "../../DisaplayElement";
 import {getDecimalDisplayValue} from "../../../common/util";
+import { BleListeningDisplayElement } from "../../../common/BleListeningDisplayElement";
 
 
 export const ChargingReqAmp: React.FC<{}> = props => {
-  const {charger, emitter} = useContext(BleContext) as BleContextType;
-
-  const [reqAmp, setReqAmp] = useState(0);
-
   const serviceId = characteristics.charger.id;
   const ids = characteristics.charger.charging;
 
-  useEffect(() => {
-    startNotifyListener(charger?.id, serviceId, ids.reqAmp, emitter, setReqAmp);
-  }, [emitter]);
-
   return (
     <>
-      <DisaplayElement value={getDecimalDisplayValue(reqAmp, 1)} label={'Request Amp'}/>
+      <BleListeningDisplayElement isCharger={true}
+                                  serviceId={serviceId}
+                                  characteristicId={ids.reqAmp}
+                                  label={"Request Amp"}
+                                  modifier={(value => getDecimalDisplayValue(value, 1))}
+                                  key={"req_amp"}/>
     </>
   );
 };
