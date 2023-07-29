@@ -4,6 +4,7 @@ import characteristics from '../../../config/characteristics.json';
 import { startNotifyListener } from '../../../common/ble';
 import { Chip } from "react-native-paper";
 import { DisaplayElement } from "../../DisaplayElement";
+import { getDecimalDisplayValue } from "../../../common/util";
 
 
 export const ChargingResAmp: React.FC<{  }> = props => {
@@ -20,7 +21,7 @@ export const ChargingResAmp: React.FC<{  }> = props => {
 
   return (
     <>
-      <DisaplayElement value={resAmp} label={'Response Amp'}/>
+      <DisaplayElement value={getDecimalDisplayValue(resAmp, 1)} label={'Response Amp'}/>
     </>
   );
 };

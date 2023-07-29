@@ -4,7 +4,7 @@ import { Chip } from "react-native-paper";
 
 export interface DisaplayElementProps {
   readonly label: String;
-  readonly value: any;
+  readonly value: string;
   readonly handleOnPress?: ()=>{};
 
 }
