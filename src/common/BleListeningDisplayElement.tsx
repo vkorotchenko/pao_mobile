@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState, useDeferredValue} from "react";
 import characteristics from './../config/characteristics.json';
 import {startNotifyListener} from './../common/ble';
 import {Chip} from "react-native-paper";
@@ -26,6 +26,7 @@ export const BleListeningDisplayElement: React.FC<BleListeningDisplayElementProp
     const {evcu, charger, emitter} = useContext(BleContext) as BleContextType;
 
     const [value, setValue] = useState(0);
+    // const deferedValue = useDeferredValue(value); TODO optimize with derfered value
     const peripheralId = isCharger ? charger?.id : evcu?.id;
 
     useEffect(() => {
