@@ -8,110 +8,92 @@ import {BleContext, BleContextType} from '../../components/ble/BleContext';
 import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
 import ScreenWrapper from '../../common/ScreenWrapper';
 import {ListItem} from '../ListItem';
+
 var Buffer = require('buffer/').Buffer;
 import {List} from 'react-native-paper';
+import {Col, Row, Grid} from "react-native-paper-grid";
+import {PaoMainReqAccel} from './main/PaoMainReqAccel';
+import {PaoMainReqRegen} from './main/PaoMainReqRegen';
+import {PaoMainReqSpeed} from './main/PaoMainReqSpeed';
+import {PaoMainReqState} from './main/PaoMainReqState';
+import {PaoMainReqTorque} from './main/PaoMainReqTorque';
+import {PaoMainResDcCurrent} from './main/PaoMainResDcCurrent';
+import {PaoMainResDcVolt} from './main/PaoMainResDcVolt';
+import {PaoMainResInvTemp} from './main/PaoMainResInvTemp';
+import {PaoMainResMotorTemp} from './main/PaoMainResMotorTemp';
+import {PaoMainResSpeed} from './main/PaoMainResSpeed';
+import {PaoMainResState} from './main/PaoMainResState';
+import {PaoMainResTorque} from './main/PaoMainResTorque';
+
 
 export default function PaoMainScreen() {
-  const {emitter} = useContext(BleContext) as BleContextType;
-
-  const [reqSpeed, setReqSpeed] = useState(0);
-  const [reqState, setReqState] = useState(0);
-  const [reqTorque, setReqTorque] = useState(0);
-  const [reqAccel, setReqAccel] = useState(0);
-  const [reqRegen, setReqRegen] = useState(0);
-  const [resMotorTemp, setResMotorTemp] = useState(0);
-  const [resInvTemp, setResInvTemp] = useState(0);
-  const [resTorque, setResTorque] = useState(0);
-  const [resSpeed, setResSpeed] = useState(0);
-  const [resState, setResState] = useState(0);
-  const [resDcVolt, setResDcVolt] = useState(0);
-  const [resDcCurrent, setResDcCurrent] = useState(0);
-
   const serviceId = characteristics.evcu.id;
   const ids = characteristics.evcu.pao;
 
-  useEffect(() => {
-    const listeners = [
-      emitter.addListener(
-        'BleManagerDidUpdateValueForCharacteristic',
-        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
-          const peripheral = event.peripheral;
-          const characteristic = event.characteristic;
-          const value = Buffer.from(event.value);
-          switch (characteristic) {
-            case ids.reqSpeed:
-              setReqSpeed(value);
-              break;
-            case ids.reqState:
-              setReqState(value);
-              break;
-            case ids.reqTorque:
-              setReqTorque(value);
-              break;
-            case ids.reqAccel:
-              setReqAccel(value);
-              break;
-            case ids.reqRegen:
-              setReqRegen(value);
-              break;
-            case ids.resMotorTemp:
-              setResMotorTemp(value);
-              break;
-            case ids.resInvTemp:
-              setResInvTemp(value);
-              break;
-            case ids.resTorque:
-              setResTorque(value);
-              break;
-            case ids.resSpeed:
-              setResSpeed(value);
-              break;
-            case ids.resState:
-              setResState(value);
-              break;
-            case ids.resDcVolt:
-              setResDcVolt(value);
-              break;
-            case ids.resDcCurrent:
-              setResDcCurrent(value);
-              break;
-          }
-        },
-      ),
-    ];
-
-    return () => {
-      for (const listener of listeners) {
-        listener.remove();
-      }
-    };
-  }, [emitter]);
-
   return (
     <ScreenWrapper>
-      <List.Section>
-        <ListItem mainText={reqAccel.toString()} secondaryText="Req Accel" />
-        <ListItem mainText={reqRegen.toString()} secondaryText="Req Regen" />
-        <ListItem mainText={reqSpeed.toString()} secondaryText="Req Speed" />
-        <ListItem mainText={reqState.toString()} secondaryText="Req State" />
-        <ListItem mainText={reqTorque.toString()} secondaryText="Req Torque" />
-        <ListItem
-          mainText={resDcCurrent.toString()}
-          secondaryText="Res Dc Current"
-        />
-        <ListItem mainText={resDcVolt.toString()} secondaryText="Res Dc Volt" />
-        <ListItem
-          mainText={resInvTemp.toString()}
-          secondaryText="Res Inv Temp"
-        />
-        <ListItem
-          mainText={resMotorTemp.toString()}
-          secondaryText="Res Motor Temp"
-        />
-        <ListItem mainText={resSpeed.toString()} secondaryText="Res Speed" />
-        <ListItem mainText={resState.toString()} secondaryText="Res State" />
-        <ListItem mainText={resTorque.toString()} secondaryText="Res Torque" />
-      </List.Section>
+      <Grid>
+        <Row>
+          <Col>
+            <PaoMainReqAccel/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainReqRegen/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainReqSpeed/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainReqState/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainReqTorque/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResDcVolt/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResDcCurrent/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResInvTemp/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResMotorTemp/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResSpeed/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResState/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <PaoMainResTorque/>
+          </Col>
+        </Row>
+      </Grid>
     </ScreenWrapper>
   );
 }

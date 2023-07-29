@@ -9,128 +9,100 @@ import {ListItem} from '../ListItem';
 import {Divider, List} from 'react-native-paper';
 import ScreenWrapper from '../../common/ScreenWrapper';
 import {BleManagerDidUpdateValueForCharacteristicEvent} from 'react-native-ble-manager';
+import {Col, Row, Grid} from "react-native-paper-grid";
+import {OutputMainContactor} from './inputoutput/OutputMainContactor';
+import {OutputPrechargeContactor} from './inputoutput/OutputPrechargeContactor';
+import {OutputBrakeLight} from './inputoutput/OutputBrakeLight';
+import {OutputCoolingFan} from './inputoutput/OutputCoolingFan';
+import {OutputReverseLight} from './inputoutput/OutputReverseLight';
+import {InputReverseSwitch} from './inputoutput/InputReverseSwitch';
+import {InputEnableSwitch} from './inputoutput/InputEnableSwitch';
+import {InputThrottle} from './inputoutput/InputThrottle';
+import {InputBrake} from './inputoutput/InputBrake';
+import {StatusIsRunning} from './inputoutput/StatusIsRunning';
+import {StatusIsFaulted} from './inputoutput/StatusIsFaulted';
+import {StatusIsWarning} from './inputoutput/StatusIsWarning';
+
 
 var Buffer = require('buffer/').Buffer;
 
 export default function InputOutputScreen() {
-  const {emitter} = useContext(BleContext) as BleContextType;
-
-  const [outMainCon, setOutMainCon] = useState(0);
-  const [outPreCon, setOutPreCon] = useState(0);
-  const [outBrake, setOutBrake] = useState(0);
-  const [outCooling, setOutCooling] = useState(0);
-  const [outReverseLight, setOutReverseLight] = useState(0);
-  const [inReverse, setInReverse] = useState(0);
-  const [inEnable, setInEnable] = useState(0);
-  const [inThrottle, setInThrottle] = useState(0);
-  const [inBrake, setInBrake] = useState(0);
-  const [isRunning, setIsRunning] = useState(0);
-  const [isFaulted, setIsFaulted] = useState(0);
-  const [isWarning, setIsWarning] = useState(0);
-
-  const serviceId = characteristics.evcu.id;
-  const ids = characteristics.evcu.input_output;
-  const status_ids = characteristics.evcu.status;
-
-  useEffect(() => {
-    const listeners = [
-      emitter.addListener(
-        'BleManagerDidUpdateValueForCharacteristic',
-        (event: BleManagerDidUpdateValueForCharacteristicEvent) => {
-          const peripheral = event.peripheral;
-          const characteristic = event.characteristic;
-          const value = Buffer.from(event.value);
-          if (event.service === serviceId) {
-            switch (characteristic) {
-              case ids.outMainCon:
-                setOutMainCon(value);
-                break;
-              case ids.outPreCon:
-                setOutPreCon(value);
-                break;
-              case ids.outBrake:
-                setOutBrake(value);
-                break;
-              case ids.outCooling:
-                setOutCooling(value);
-                break;
-              case ids.outReverseLight:
-                setOutReverseLight(value);
-                break;
-              case ids.inReverse:
-                setInReverse(value);
-                break;
-              case ids.inEnable:
-                setInEnable(value);
-                break;
-              case ids.inThrottle:
-                setInThrottle(value);
-                break;
-              case ids.inBrake:
-                setInBrake(value);
-                break;
-            }
-          } else if (event.service === status_ids) {
-            switch (characteristic) {
-              case status_ids.isRunning:
-                setIsRunning(value);
-                break;
-              case status_ids.isFaulted:
-                setIsFaulted(value);
-                break;
-              case status_ids.isWarning:
-                setIsWarning(value);
-                break;
-            }
-          }
-        },
-      ),
-    ];
-
-    return () => {
-      for (const listener of listeners) {
-        listener.remove();
-      }
-    };
-  }, [emitter]);
-
   return (
     <ScreenWrapper>
-      <List.Section>
-        <List.Subheader>Configurations</List.Subheader>
-        <ListItem
-          mainText={outMainCon.toString()}
-          secondaryText="Main Contactor"
-        />
-        <ListItem
-          mainText={outPreCon.toString()}
-          secondaryText="Precharge Contactor"
-        />
-        <ListItem mainText={outBrake.toString()} secondaryText="Brake Light" />
-        <ListItem
-          mainText={outCooling.toString()}
-          secondaryText="Cooling Fan"
-        />
-        <ListItem
-          mainText={outReverseLight.toString()}
-          secondaryText="Reverse Light"
-        />
-        <ListItem
-          mainText={inReverse.toString()}
-          secondaryText="Reverse Switch"
-        />
-        <ListItem
-          mainText={inEnable.toString()}
-          secondaryText="Enable Switch"
-        />
-        <ListItem mainText={inThrottle.toString()} secondaryText="Throttle" />
-        <ListItem mainText={inBrake.toString()} secondaryText="Brake" />
-        <Divider />
-        <ListItem mainText={isRunning.toString()} secondaryText="Running" />
-        <ListItem mainText={isFaulted.toString()} secondaryText="Faulted" />
-        <ListItem mainText={isWarning.toString()} secondaryText="Warning" />
-      </List.Section>
+      <Grid>
+        <Row>
+          <Col>
+            <OutputMainContactor/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <OutputPrechargeContactor/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <OutputBrakeLight/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <OutputCoolingFan/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <OutputReverseLight/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Divider/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <InputReverseSwitch/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <InputEnableSwitch/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <InputThrottle/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <InputBrake/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Divider/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <StatusIsRunning/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <StatusIsFaulted/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <StatusIsWarning/>
+          </Col>
+        </Row>
+      </Grid>
     </ScreenWrapper>
+
   );
 }
 
