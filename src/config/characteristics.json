@@ -56,8 +56,8 @@
   "charger": {
     "id": "27B0",
     "charging": {
-      "reqVolt": "2A1B",
-      "reqAmp": "2A1A",
+      "reqVolt": "2AEB",
+      "reqAmp": "2AEC",
       "resVolt": "2BED",
       "resAmp": "2BF0",
       "elapsedTime": "2BEE"

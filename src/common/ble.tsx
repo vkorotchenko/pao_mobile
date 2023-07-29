@@ -92,14 +92,6 @@ export const handleDisconnectedPeripheral = (
   );
 };
 
-export const handleUpdateValueForCharacteristic = (
-  data: BleManagerDidUpdateValueForCharacteristicEvent,
-) => {
-  console.debug(
-    `[handleUpdateValueForCharacteristic] received data from '${data.peripheral}' with characteristic='${data.characteristic}' and value='${data.value}'`,
-  );
-};
-
 export const handleDiscoverPeripheral = (
   peripheral: BleDiscoverPeripheralEvent,
   peripherals: Peripherals,
@@ -115,6 +107,22 @@ export const handleDiscoverPeripheral = (
       break;
   }
 };
+
+export const handleUpdateValueForCharacteristic = (
+  data: BleManagerDidUpdateValueForCharacteristicEvent,
+) => {
+  return;
+};
+
+const expectedCharacteristic = (peripheralId: string, serviceUUID: string, characteristicUUID: string, data: BleManagerDidUpdateValueForCharacteristicEvent) => {
+  if (data.peripheral.toUpperCase().indexOf(peripheralId.toUpperCase()) !== -1
+    && data.service.toUpperCase().indexOf(serviceUUID.toUpperCase()) !== -1
+    && data.characteristic.toUpperCase().indexOf(characteristicUUID.toUpperCase()) !== -1) {
+    return true;
+  }
+  return false;
+}
+
 export const startNotifyListener =
   (peripheralId: string, serviceUUID: string, characteristicUUID: string, emitter: NativeEventEmitter, setState: (value: any) => void) => {
     BleManager.startNotification(peripheralId, serviceUUID, characteristicUUID)
@@ -122,24 +130,35 @@ export const startNotifyListener =
         emitter.addListener(
           'BleManagerDidUpdateValueForCharacteristic',
           (data: BleManagerDidUpdateValueForCharacteristicEvent) => {
+
+
+            if (!expectedCharacteristic(peripheralId, serviceUUID, characteristicUUID, data)) {
+              return;
+            }
+            console.debug(
+              `[handleUpdateValueForCharacteristic] listener for  '${peripheralId}.${serviceUUID}.${characteristicUUID}' received='${data.peripheral.toUpperCase()}.${data.service.toUpperCase()}.${data.characteristic.toUpperCase()}' and value='${data.value}'`,
+            );
+
             const peripheral = data.peripheral;
             const characteristic = data.characteristic;
             const value = data.value;
-            const stringValue : string = Buffer.from(value).toString();
-            const intValue : number = parseInt(stringValue,16);
-            if ( isNaN(intValue)) {
+            const stringValue: string = Buffer.from(value).toString();
+            const intValue: number = parseInt(stringValue, 16);
+            if (isNaN(intValue)) {
               setState(value)
             } else {
               setState(intValue);
             }
-          },
-        );
+          }
+          ,
+        )
+        ;
       })
       .catch(error => {
-        console.debug('[ChargingScreen] could not add listener');
+        console.debug(`[ChargingScreen] could not add listener ${error}`);
       });
 
-};
+  };
 
 export const togglePeripheralConnection = async (
   peripheral: Peripheral,
@@ -264,3 +283,4 @@ export const handleAndroidPermissions = () => {
     });
   }
 };
+
