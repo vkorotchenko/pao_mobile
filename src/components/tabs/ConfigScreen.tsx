@@ -71,71 +71,71 @@ export default function ConfigScreen() {
           <ConfigKilowattHrs/>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <ConfigPrechargeR/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigNominalVolt/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigPrechargeRelay/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigMainContactorRelay/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigCoolFan/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigCoolOn/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigCoolOff/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigBrakeLight/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigRevLight/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigEnableIn/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigReverseIn/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigRegenTaperLower/>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ConfigRegenTaperUpper/>
-        </Col>
-      </Row>
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigPrechargeR/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigNominalVolt/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigPrechargeRelay/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigMainContactorRelay/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigCoolFan/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigCoolOn/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigCoolOff/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigBrakeLight/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigRevLight/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigEnableIn/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigReverseIn/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigRegenTaperLower/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
+      {/*<Row>*/}
+      {/*  <Col>*/}
+      {/*    <ConfigRegenTaperUpper/>*/}
+      {/*  </Col>*/}
+      {/*</Row>*/}
     </Grid>
   </ScreenWrapper>
 )

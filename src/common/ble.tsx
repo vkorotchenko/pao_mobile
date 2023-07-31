@@ -102,6 +102,7 @@ export const handleDiscoverPeripheral = (
   switch (peripheral.name) {
     case 'Pao EVCU':
     case 'Pao Charger':
+    case 'Adafruit Bluefruit LE':
       connectPeripheral(peripheral, peripherals, setPeripherals);
       setScanning(false);
       break;

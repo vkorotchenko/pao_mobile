@@ -26,8 +26,6 @@ import {BleListeningDisplayElement} from '../../common/BleListeningDisplayElemen
 import {getDecimalDisplayValue, toTimeString} from '../../common/util';
 
 export default function ChargingScreen() {
-  const serviceId = characteristics.charger.id;
-  const ids = characteristics.charger.charging;
   return (
     <ScreenWrapper>
       <Grid>

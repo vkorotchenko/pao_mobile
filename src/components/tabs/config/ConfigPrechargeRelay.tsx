@@ -5,7 +5,7 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const ConfigPrechargeRelay: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
+  const serviceId = characteristics.evcu.config.id;
   const ids = characteristics.evcu.config;
 
   return (

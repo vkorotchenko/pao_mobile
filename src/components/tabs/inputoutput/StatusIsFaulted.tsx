@@ -5,7 +5,7 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const StatusIsFaulted: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
+  const serviceId = characteristics.evcu.status.id;
   const ids = characteristics.evcu.status;
 
   return (

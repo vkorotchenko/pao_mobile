@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState, useDeferredValue} from "react";
 import characteristics from './../config/characteristics.json';
 import {startNotifyListener} from './../common/ble';
-import {Chip} from "react-native-paper";
 import {DisaplayElement} from "../components/DisaplayElement";
 import {getDecimalDisplayValue} from "./../common/util";
 import {BleContext, BleContextType} from "../components/ble/BleContext";

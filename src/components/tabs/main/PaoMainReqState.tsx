@@ -5,7 +5,7 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const PaoMainReqState: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
+  const serviceId = characteristics.evcu.pao.id;
   const ids = characteristics.evcu.pao;
 
   return (

@@ -1,7 +1,7 @@
 {
   "evcu": {
-    "id": "27B4",
       "pao": {
+        "id": "27B4",
         "reqSpeed": "FF01",
         "reqState": "FF02",
         "reqTorque": "FF03",
@@ -16,6 +16,7 @@
         "resDcCurrent": "FF0D"
       },
       "input_output": {
+        "id": "27B5",
         "outMainCon": "FF0E",
         "outPreCon": "FF0F",
         "outBrake": "FF10",
@@ -27,11 +28,13 @@
         "inBrake": "FF17"
       },
       "status": {
+        "id": "27B5",
         "isRunning": "FF18",
         "isFaulted": "FF19",
         "isWarning": "FF1A"
       },
       "config": {
+        "id": "27B6",
         "configSpeedMax": "FF1B",
         "configTorqueMax": "FF1C",
         "configSpeedSlewRate": "FF1D",
@@ -49,7 +52,7 @@
         "configRevLight": "FF29",
         "configEnableIn": "FF2A",
         "configReverseIn": "FF2B",
-        "configRegenTaperLower": "FF02C",
+        "configRegenTaperLower": "FF2C",
         "configRegenTaperUpper": "FF2D"
       }
   },

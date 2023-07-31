@@ -27,9 +27,6 @@ import {PaoMainResTorque} from './main/PaoMainResTorque';
 
 
 export default function PaoMainScreen() {
-  const serviceId = characteristics.evcu.id;
-  const ids = characteristics.evcu.pao;
-
   return (
     <ScreenWrapper>
       <Grid>

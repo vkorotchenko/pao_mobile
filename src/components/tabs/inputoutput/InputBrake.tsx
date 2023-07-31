@@ -5,7 +5,7 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const InputBrake: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
+  const serviceId = characteristics.evcu.input_output.id;
   const ids = characteristics.evcu.input_output;
 
   return (
