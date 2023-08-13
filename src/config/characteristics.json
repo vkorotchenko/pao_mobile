@@ -1,61 +1,38 @@
 {
   "evcu": {
-    "id": "27B4",
       "pao": {
+        "serviceId": "27B4",
         "reqSpeed": "FF01",
         "reqState": "FF02",
         "reqTorque": "FF03",
         "reqAccel": "FF04",
         "reqRegen": "FF05",
-        "resMotorTemp": "FF07",
-        "resInvTemp": "FF08",
-        "resTorque": "FF09",
-        "resSpeed": "FF0A",
-        "resState": "FF0B",
-        "resDcVolt": "FF0C",
-        "resDcCurrent": "FF0D"
+        "resMotorTemp": "FF06",
+        "resInvTemp": "FF07",
+        "resTorque": "FF08",
+        "resSpeed": "FF09",
+        "resState": "FF0A",
+        "resDcVolt": "FF0B",
+        "resDcCurrent": "FF0C"
       },
       "input_output": {
-        "outMainCon": "FF0E",
-        "outPreCon": "FF0F",
-        "outBrake": "FF10",
-        "outCooling": "FF11",
-        "outReverseLight": "FF12",
-        "inReverse": "FF13",
-        "inEnable": "FF14",
-        "inThrottle": "FF15",
-        "inBrake": "FF17"
-      },
-      "status": {
-        "isRunning": "FF18",
-        "isFaulted": "FF19",
-        "isWarning": "FF1A"
+        "serviceId": "27B5",
+        "output": "FF0D",
+        "input": "FF0E",
+        "inThrottle": "FF1D",
+        "inBrake": "FF1E",
+        "status":"FF0F"
       },
       "config": {
-        "configSpeedMax": "FF1B",
-        "configTorqueMax": "FF1C",
-        "configSpeedSlewRate": "FF1D",
-        "configTorqueSlewRate": "FF1E",
-        "configReversePercent": "FF1F",
-        "configKilowattHrs": "FF20",
-        "configPrechargeR": "FF21",
-        "configNominalVolt": "FF22",
-        "configPrechargeRelay": "FF23",
-        "configMainContactorRelay": "FF24",
-        "configCoolFan": "FF25",
-        "configCoolOn": "FF26",
-        "configCoolOff": "FF27",
-        "configBrakeLight": "FF28",
-        "configRevLight": "FF29",
-        "configEnableIn": "FF2A",
-        "configReverseIn": "FF2B",
-        "configRegenTaperLower": "FF02C",
-        "configRegenTaperUpper": "FF2D"
+        "serviceId": "27B6",
+        "config1": "FF1A",
+        "config2": "FF1B",
+        "config3": "FF1C"
       }
   },
   "charger": {
-    "id": "27B0",
     "charging": {
+      "serviceId": "27B0",
       "reqVolt": "2AEB",
       "reqAmp": "2AEC",
       "resVolt": "2BED",

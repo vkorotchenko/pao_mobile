@@ -5,13 +5,11 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const InputBrake: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
   const ids = characteristics.evcu.input_output;
 
   return (
     <>
-
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.inBrake}
                                   label={"Input Brake"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

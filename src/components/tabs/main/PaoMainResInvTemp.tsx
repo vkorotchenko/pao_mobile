@@ -5,13 +5,12 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const PaoMainResInvTemp: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
   const ids = characteristics.evcu.pao;
 
   return (
     <>
 
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.resInvTemp}
                                   label={"Response Inverter Temperature"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

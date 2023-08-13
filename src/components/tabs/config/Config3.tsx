@@ -4,18 +4,15 @@ import {getDecimalDisplayValue} from "../../../common/util";
 import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayElement";
 
 
-export const ConfigCoolOff: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
+export const Config3: React.FC<{}> = props => {
   const ids = characteristics.evcu.config;
 
   return (
     <>
-
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.configCoolOff}
-                                  label={"Config Cool Off"}
-                                  modifier={(value => value.toString())}
-                                  key={"config_config_off"}/>
+                                  label={"Config 3"}
+                                  modifier={(value => value.toString())}/>
     </>
   );
 };
