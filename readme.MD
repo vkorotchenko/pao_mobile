@@ -20,8 +20,7 @@ React native mobile app for my ev pao conversion. Simple design to display car i
 # Compatibility
 designed to work with the ev pao charger controller and the eve pao evcu controller can be found below:
 [Charger](https://github.com/vkorotchenko/pao_charger)
-[EVCU](https://github.com/vkorotchenko/EVCU6)
-//TODO change to my own repo
+[EVCU](https://github.com/vkorotchenko/pao_evcu)
 
 |Mobile| Charger | EVCU|
 |--|--|--|
