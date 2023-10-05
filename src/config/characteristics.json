@@ -1,0 +1,43 @@
+{
+  "evcu": {
+      "pao": {
+        "serviceId": "27B4",
+        "reqSpeed": "FF01",
+        "reqState": "FF02",
+        "reqTorque": "FF03",
+        "reqAccel": "FF04",
+        "reqRegen": "FF05",
+        "resMotorTemp": "FF06",
+        "resInvTemp": "FF07",
+        "resTorque": "FF08",
+        "resSpeed": "FF09",
+        "resState": "FF0A",
+        "resDcVolt": "FF0B",
+        "resDcCurrent": "FF0C"
+      },
+      "input_output": {
+        "serviceId": "27B5",
+        "output": "FF0D",
+        "input": "FF0E",
+        "inThrottle": "FF1D",
+        "inBrake": "FF1E",
+        "status":"FF0F"
+      },
+      "config": {
+        "serviceId": "27B6",
+        "config1": "FF1A",
+        "config2": "FF1B",
+        "config3": "FF1C"
+      }
+  },
+  "charger": {
+    "charging": {
+      "serviceId": "27B0",
+      "reqVolt": "2AEB",
+      "reqAmp": "2AEC",
+      "resVolt": "2BED",
+      "resAmp": "2BF0",
+      "elapsedTime": "2BEE"
+    }
+  }
+}

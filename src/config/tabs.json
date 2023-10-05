@@ -1,0 +1,24 @@
+{
+  "navigation": [
+    {
+      "key": "pao",
+      "title": "Pao",
+      "focusedIcon": "car"
+    },
+    {
+      "key": "charging",
+      "title": "Charging",
+      "focusedIcon": "lightning-bolt"
+    },
+    {
+      "key": "inputOutput",
+      "title": "InputOutput",
+      "focusedIcon": "power-standby"
+    },
+    {
+      "key": "config",
+      "title": "Config",
+      "focusedIcon": "car-wrench"
+    }
+  ]
+}
