@@ -5,13 +5,12 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const PaoMainResSpeed: React.FC<{}> = props => {
-  const serviceId = characteristics.evcu.pao.id;
   const ids = characteristics.evcu.pao;
 
   return (
     <>
 
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.resSpeed}
                                   label={"Response Speed"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

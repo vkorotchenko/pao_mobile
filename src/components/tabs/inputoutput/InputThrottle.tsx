@@ -5,13 +5,12 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const InputThrottle: React.FC<{}> = props => {
-  const serviceId = characteristics.evcu.input_output.id;
   const ids = characteristics.evcu.input_output;
 
   return (
     <>
 
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.inThrottle}
                                   label={"Input Throttle"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

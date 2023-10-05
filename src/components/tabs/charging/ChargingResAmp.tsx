@@ -5,14 +5,13 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const ChargingResAmp: React.FC<{}> = props => {
-  const serviceId = characteristics.charger.id;
   const ids = characteristics.charger.charging;
 
   return (
     <>
 
       <BleListeningDisplayElement isCharger={true}
-                                  serviceId={serviceId}
+                                  serviceId={ids.serviceId}
                                   characteristicId={ids.resAmp}
                                   label={"Response Amp"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

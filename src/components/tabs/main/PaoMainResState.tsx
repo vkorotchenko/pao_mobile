@@ -5,13 +5,12 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const PaoMainResState: React.FC<{}> = props => {
-  const serviceId = characteristics.evcu.pao.id;
   const ids = characteristics.evcu.pao;
 
   return (
     <>
 
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.resState}
                                   label={"Response State"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

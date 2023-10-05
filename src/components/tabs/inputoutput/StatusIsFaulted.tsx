@@ -2,19 +2,19 @@ import React from "react";
 import characteristics from '../../../config/characteristics.json';
 import {getDecimalDisplayValue} from "../../../common/util";
 import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayElement";
+import { getValueAtBit } from "../../../common/modifiers";
 
 
 export const StatusIsFaulted: React.FC<{}> = props => {
-  const serviceId = characteristics.evcu.status.id;
   const ids = characteristics.evcu.status;
 
   return (
     <>
 
-      <BleListeningDisplayElement serviceId={serviceId}
-                                  characteristicId={ids.isFaulted}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
+                                  characteristicId={ids.status}
                                   label={"Status Is Faulted"}
-                                  modifier={(value => value.toString())}
+                                  modifier={(value => getValueAtBit(value, 1))}
                                   key={"is_faulted"}/>
     </>
   );

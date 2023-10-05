@@ -5,12 +5,11 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 
 
 export const PaoMainReqTorque: React.FC<{}> = props => {
-  const serviceId = characteristics.evcu.pao.id;
   const ids = characteristics.evcu.pao;
 
   return (
     <>
-      <BleListeningDisplayElement serviceId={serviceId}
+      <BleListeningDisplayElement serviceId={ids.serviceId}
                                   characteristicId={ids.reqTorque}
                                   label={"Request Torque"}
                                   modifier={(value => getDecimalDisplayValue(value, 1))}

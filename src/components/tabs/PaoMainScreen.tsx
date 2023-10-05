@@ -27,6 +27,7 @@ import {PaoMainResTorque} from './main/PaoMainResTorque';
 
 
 export default function PaoMainScreen() {
+
   return (
     <ScreenWrapper>
       <Grid>
