@@ -6,7 +6,7 @@ import { getValueAtBit } from "../../../common/modifiers";
 
 
 export const StatusIsFaulted: React.FC<{}> = props => {
-  const ids = characteristics.evcu.status;
+  const ids = characteristics.evcu.input_output;
 
   return (
     <>

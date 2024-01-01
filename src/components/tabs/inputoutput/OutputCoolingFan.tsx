@@ -12,7 +12,7 @@ export const OutputCoolingFan: React.FC<{}> = props => {
     <>
 
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.outCooling}
+                                  characteristicId={ids.output}
                                   label={"Output Cooling Fan"}
                                   modifier={(value => getValueAtBit(value, 4))}
                                   key={"out_cooling_fan"}/>

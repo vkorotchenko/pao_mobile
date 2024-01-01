@@ -11,7 +11,7 @@ export const OutputReverseLight: React.FC<{}> = props => {
   return (
     <>
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.outReverseLight}
+                                  characteristicId={ids.output}
                                   label={"Output Reverse Light"}
                                   modifier={(value => getValueAtBit(value, 5))}
                                   key={"out_reverse_light"}/>

@@ -33,7 +33,7 @@ NOTE: on windeos if seeing ```yarn.ps1 cannot be loaded because running scripts 
 # Compatibility
 designed to work with the ev pao charger controller and the eve pao evcu controller can be found below:
 [Charger](https://github.com/vkorotchenko/pao_charger)
-[EVCU](https://github.com/vkorotchenko/EVCU6)
+[EVCU](https://github.com/vkorotchenko/pao_evcu)
 //TODO change to my own repo
 
 |Mobile| Charger | EVCU|

@@ -12,7 +12,7 @@ export const InputEnableSwitch: React.FC<{}> = props => {
     <>
 
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.inEnable}
+                                  characteristicId={ids.input}
                                   label={"Input Enable Switch"}
                                   modifier={(value => getValueAtBit(value,1))}
                                   key={"in_enable_switch"}/>

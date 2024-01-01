@@ -10,8 +10,8 @@ export const Config1: React.FC<{}> = props => {
   return (
     <>
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.config1}
-                                  label={"Config 1"}
+                                  characteristicId={ids.config1.characteristic}
+                                  label={ids.config1.label}
                                   modifier={(value => value.toString())}/>
     </>
   );

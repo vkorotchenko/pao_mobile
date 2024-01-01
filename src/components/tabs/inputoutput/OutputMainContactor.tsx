@@ -12,7 +12,7 @@ export const OutputMainContactor: React.FC<{}> = props => {
     <>
 
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.outMainCon}
+                                  characteristicId={ids.output}
                                   label={"Output Main Contactor"}
                                   modifier={(value => getValueAtBit(value, 2))}
                                   key={"main_contactor"}/>

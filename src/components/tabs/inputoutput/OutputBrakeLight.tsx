@@ -12,7 +12,7 @@ export const OutputBrakeLight: React.FC<{}> = props => {
     <>
 
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.outBrake}
+                                  characteristicId={ids.output}
                                   label={"Output Brake Light"}
                                   modifier={(value => getValueAtBit(value, 3))}
                                   key={"out_brake_light"}/>

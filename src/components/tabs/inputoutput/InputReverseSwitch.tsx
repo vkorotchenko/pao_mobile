@@ -12,7 +12,7 @@ export const InputReverseSwitch: React.FC<{}> = props => {
     <>
 
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.inReverse}
+                                  characteristicId={ids.input}
                                   label={"Input Reverse Switch"}
                                   modifier={(value => getValueAtBit(value, 2))}
                                   key={"in_revers_switch"}/>

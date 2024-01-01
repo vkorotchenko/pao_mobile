@@ -11,7 +11,7 @@ export const OutputPrechargeContactor: React.FC<{}> = props => {
   return (
     <>
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.outPreCon}
+                                  characteristicId={ids.output}
                                   label={"Output Precharge Contactor"}
                                   modifier={(value => getValueAtBit(value, 1))}
                                   key={"pre_contactor"}/>

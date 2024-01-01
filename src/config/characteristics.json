@@ -25,9 +25,18 @@
       },
       "config": {
         "serviceId": "27B6",
-        "config1": "FF1A",
-        "config2": "FF1B",
-        "config3": "FF1C"
+        "config1": {
+          "characteristic":"FF1A",
+          "label": "Max speed"
+        },
+        "config2": {
+          "characteristic":"FF1B",
+          "label": "Max torque"
+        },
+        "config3": {
+          "characteristic":"FF1C",
+          "label": "Speed slew rate"
+        }
       }
   },
   "charger": {

@@ -5,12 +5,12 @@ import {BleListeningDisplayElement} from "../../../common/BleListeningDisplayEle
 import { getValueAtBit } from "../../../common/modifiers";
 
 export const StatusIsWarning: React.FC<{}> = props => {
-  const ids = characteristics.evcu.status;
+  const ids = characteristics.evcu.input_output;
 
   return (
     <>
       <BleListeningDisplayElement serviceId={ids.serviceId}
-                                  characteristicId={ids.isWarning}
+                                  characteristicId={ids.status}
                                   label={"Status Is Warning"}
                                   modifier={(value => getValueAtBit(value, 3))}
                                   key={"is_warning"}/>
